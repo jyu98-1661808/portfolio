@@ -1,0 +1,84 @@
+@import './App.scss';
+
+#Contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90vw;
+
+    img.left-hand {
+        position: fixed;
+        top: 50vh;
+        left: 0;
+        width: 30vw;
+        height: auto;
+
+        @media screen and (max-width: $small) {
+            top: 60vh;
+            width: 45vw;
+        }
+    }
+
+    img.right-hand {
+        position: fixed;
+        top: 57.5vh;
+        right: 0;
+        width: 30vw;
+        height: auto;
+
+        @media screen and (max-width: $small) {
+            top: 62.5vh;
+            width: 45vw;
+        }
+    }
+
+    div.contact-container {
+        margin-left: -7vw;
+
+        @media screen and (max-width: $small) {
+            margin-top: 10vh;
+            margin-left: 0;
+        }
+        
+        h1 {
+            margin-left: -5vw;
+            font-family: $primary-font-stack;
+            font-size: 6.5vw;
+
+            @media screen and (max-width: $small) {
+                margin-left: 0;
+                margin-bottom: 1vh;
+                font-size: 10vw;
+            }    
+        }
+
+        p {
+            font-size: 1.5vw;
+            color: $secondary-font-color;
+            margin-top: 1.5vh;
+            margin-bottom: 1.5vh;
+
+            @media screen and (max-width: $small) {
+                font-size: 3.5vw;
+                margin-top: 0.5vh;
+                margin-bottom: 0.5vh;
+            }    
+
+            a {
+                font-family: $primary-font-stack;
+                color: $primary-font-color;
+                text-decoration: none;
+            }
+
+            img {
+                margin-bottom: -0.75vh;
+                width: 2vw;
+                height: auto;
+
+                @media screen and (max-width: $small) {
+                    width: 5vw;
+                }    
+            }
+        }
+    }
+}
