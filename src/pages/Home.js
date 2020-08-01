@@ -74,7 +74,7 @@ function Home() {
                 </div>
                 <NavLink 
                     id='second-project' 
-                    to="/projects/fresh" 
+                    to="/projects/splash" 
                     onMouseEnter={() => setHovered3(true)}
                     onMouseLeave={() => setHovered3(false)}
                 >

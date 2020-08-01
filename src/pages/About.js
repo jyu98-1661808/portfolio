@@ -3,10 +3,23 @@ import { NavLink } from "react-router-dom";
 import { motion } from 'framer-motion';
 import '../styles/About.scss';
 
-function About() {
+function About(isBurger) {
+    if (isBurger) {
+        document.body.style.overflow = 'visible'
+    } else { 
+        document.body.style.overflow = 'hidden'
+    }
+
+    const [isClicked, setClicked] = useState(false);
+    
+    function toggleClicked() {
+        setClicked(true)
+        setTimeout(() => setClicked(false), 8000)
+    }
+
     return (
         <div id='About'>
-            <motion.img id='me' src='../img/about/me.png' alt='Photo of Jiyun Yu'  initial={{ y: -150, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ y: { type: "spring", stiffness: 200, duration: 1 } }}/>
+            <motion.img id='me' src='../img/about/me-2.png' alt='Photo of Jiyun Yu'  initial={{ y: -150, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ y: { type: "spring", stiffness: 200, duration: 1 } }}/>
             <div className='about-container'>
                 <motion.h1  
                     initial={{ opacity: 0 }} 
@@ -60,7 +73,8 @@ function About() {
                                 }} />
                         </NavLink>
                     </motion.div>
-                    <motion.button 
+                    { !isBurger && <motion.button 
+                        onClick={() => toggleClicked()}
                         whileHover={{
                             rotate: 360,
                             transition: { duration: 1 },
@@ -74,9 +88,46 @@ function About() {
                                 rotate: 360,
                                 transition: { duration: 1 },
                             }} />
-                    </motion.button>
+                    </motion.button> }
                 </div>
             </div>
+            { isClicked && <SmileWall /> }
+        </div>
+    );
+}
+
+function SmileWall() {
+    const smileVariants = {
+        visible: i => ({
+          opacity: 1,
+          rotate: 360,
+          y: 1000,
+          transition: {
+            rotate: { duration: 1, ease: "linear", loop: 8 },
+            y: { duration: 4, delay: i * (0.1 + (Math.random() * (0.35 - 0.1))) },
+          },
+          transitionEnd: { display: "none" }
+        }),
+        hidden: { opacity: 0, y: -1000 },
+    }
+
+    var rows = [];
+
+    for (var i = 0; i < 20; i++) {
+        rows.push(
+            <motion.img 
+                src='../img/about/smile-logo.png' 
+                alt='smile logo' 
+                custom={i}
+                initial="hidden"
+                animate="visible"
+                variants={smileVariants} />
+        );
+    }
+
+    return (
+        <div id='smile-wall'> 
+            { rows }
         </div>
     );
 }

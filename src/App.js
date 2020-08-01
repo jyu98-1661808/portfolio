@@ -9,24 +9,37 @@ import { motion } from 'framer-motion';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import HabiHero from './pages/HabiHero';
+import Fresh from './pages/Fresh';
+import Splash from './pages/Splash';
 import './styles/App.scss';
 
 function App() {
+  const [ isBurger, setBurger ] = useState(false);
+
   return (
     <div id="App">
       <Router>
         <header className="navigation">
-          <Burger />
-          <img className='logo' src='./img/flower-logo.png' alt='logo' />
+          <Burger isBurger={isBurger} setBurger={setBurger} />
+          <img className='logo' src='../img/flower-logo.png' alt='logo' />
           <Menu />
         </header>
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/projects/:id" />
+          <Route path="/projects/habihero">
+            <HabiHero />
+          </Route>
+          <Route path="/projects/fresh">
+            <Fresh />
+          </Route>
+          <Route path="/projects/splash">
+            <Splash />
+          </Route>
           <Route path="/about">
-            <About />
+            <About isBurger={isBurger} />
           </Route>
           <Route path="/contact">
             <Contact />
@@ -40,8 +53,7 @@ function App() {
   );
 }
 
-function Burger() {
-  const [ isBurger, setBurger ] = useState(false)
+function Burger({isBurger, setBurger}) {
 
   const toggleBurger = () => {
     setBurger(!isBurger)
@@ -58,7 +70,7 @@ function Burger() {
       </div>
       <div id='overlay' className='menu-overlay'>
         <div className='mobile-container'>
-          <motion.img 
+          <motion.img
             className='logo' 
             src='./img/flower-logo.png' alt='logo' 
             animate={{ rotate: isBurger ? 360 : 0 }} 

@@ -24,8 +24,20 @@
         flex-direction: row;
     } 
 
+    div#smile-wall {
+        display: inline-block;
+        margin: 0 auto;
+        width: 80vw;
+        position: absolute;
+            img {
+                padding: 3em;
+                height: 10vh;
+                z-index: 2;
+            }
+    }
+
     img#me {
-        height: 75vh;
+        height: 72.5vh;
         width: auto;
 
         @media screen and (min-width: $medium) {

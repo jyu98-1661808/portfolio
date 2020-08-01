@@ -1,0 +1,119 @@
+@import './App.scss';
+
+#Habi-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    // justify-content: center;
+    margin-left: 3vw;
+    width: 70vw;
+    height: 270vh;
+
+    h1 {
+        font-size: 2.5vw;
+        margin-bottom: 0;
+        font-family: $primary-font-stack;
+        color: $primary-font-color;
+
+        @media screen and (max-width: $small) {
+            font-size: 8vw;
+        }
+    }
+
+    h3 {
+        font-size: 1.65vw;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: $primary-font-stack;
+        color: $primary-font-color;
+
+        @media screen and (max-width: $small) {
+            font-size: 6vw;
+        }
+    }
+
+    h4 {
+        font-size: 1.25vw;
+        margin-top: 1vh;
+        margin-bottom: 0;
+        font-family: $primary-font-stack;
+        color: $primary-font-color;
+
+        @media screen and (max-width: $small) {
+            font-size: 6vw;
+        }
+    }
+
+    p {
+        margin-top: 0.5vh;
+        line-height: 1.5;
+    }
+
+    p.about-main {
+        margin-top: 1vh;
+        font-size: 1.25vw;
+        line-height: 1.25;
+
+        span img {
+            margin-left: -0.2vw;
+            margin-bottom: -0.4vh;
+            width: 22.5%;
+        }
+    }
+
+    div.about-container {
+        display: flex;
+        flex-direction: row;
+        align-items: space-between;
+        width: 70vw;
+
+        div.description-container {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            width: 55%;
+        }
+
+        div.tools-container {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            width: 30%;
+            
+        }
+    }
+
+    div.movie-container {
+        align-self: center;
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        width: 52vw;
+        height: 50vh;
+
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    div.research-container {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        width: 70vw;
+    }
+
+    div#habihero-paper {
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        align-self: center;
+        width: 70%;
+        height: 68vh;
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            align-self: center;
+        }
+    }
+}
