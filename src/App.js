@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,13 +15,21 @@ import Splash from './pages/Splash';
 import './styles/App.scss';
 
 function App() {
-  const [ isBurger, setBurger ] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth)
+
+  useEffect(() =>
+    window.addEventListener('resize', () => checkWidth())
+  )
+
+  function checkWidth() {
+    setWidth(window.innerWidth)
+  }
 
   return (
     <div id="App">
       <Router>
         <header className="navigation">
-          <Burger isBurger={isBurger} setBurger={setBurger} />
+          <Burger />
           <img className='logo' src='../img/flower-logo.png' alt='logo' />
           <Menu />
         </header>
@@ -39,7 +47,7 @@ function App() {
             <Splash />
           </Route>
           <Route path="/about">
-            <About isBurger={isBurger} />
+            <About width={width} />
           </Route>
           <Route path="/contact">
             <Contact />
@@ -53,7 +61,8 @@ function App() {
   );
 }
 
-function Burger({isBurger, setBurger}) {
+function Burger() {
+  const [ isBurger, setBurger ] = useState(false)
 
   const toggleBurger = () => {
     setBurger(!isBurger)

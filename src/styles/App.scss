@@ -9,6 +9,10 @@ $background-color: #fff8ee;
 $small: 35em;
 $medium: 35.15em;
 
+body {
+  background: $background-color;
+}
+
 #App {
   display: flex;
   background: $background-color;

@@ -1,13 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
 import { motion } from 'framer-motion';
 import '../styles/About.scss';
 
-function About(isBurger) {
-    if (isBurger) {
-        document.body.style.overflow = 'visible'
-    } else { 
-        document.body.style.overflow = 'hidden'
+function About({width}) {
+    const isMobile = width <= 500;
+    
+    useEffect(() => updatingScroll())
+    
+    function updatingScroll() {
+        if (isMobile) {
+            console.log("hey")
+            document.getElementById('fun-button').style.display = 'none';
+            document.body.style.overflowY = 'visible'
+            document.body.style.overflowX = 'hidden'
+        } else {
+            document.getElementById('fun-button').style.display = 'block';
+            document.body.style.overflow = 'hidden'
+        }
     }
 
     const [isClicked, setClicked] = useState(false);
@@ -73,7 +83,7 @@ function About(isBurger) {
                                 }} />
                         </NavLink>
                     </motion.div>
-                    { !isBurger && <motion.button 
+                    <motion.button id='fun-button'
                         onClick={() => toggleClicked()}
                         whileHover={{
                             rotate: 360,
@@ -88,7 +98,7 @@ function About(isBurger) {
                                 rotate: 360,
                                 transition: { duration: 1 },
                             }} />
-                    </motion.button> }
+                    </motion.button>
                 </div>
             </div>
             { isClicked && <SmileWall /> }
