@@ -3,7 +3,7 @@
 ## About this portfolio
 
 This is Jiyun Yu's portfolio that showcases front-end development and design projects, powered by React. <br/>
-Check out the deployed website [@jiyunyu.me](jiyunyu.me)!
+Check out the deployed website [@jiyunyu.me](https://www.jiyunyu.me)!
 
 ### `npm start`
 
