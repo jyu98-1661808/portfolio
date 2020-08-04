@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NavLink } from "react-router-dom";
 import Slider from "react-slick";
 import { motion } from 'framer-motion';
-import '../styles/Projects.scss';
+import '../styles/HabiHero.scss';
 
 function HabiHero() {
     document.body.style.overflowY = 'visible'
@@ -197,7 +197,7 @@ function HabiHero() {
                     id='next-arrow'
                     src='../img/projects/next-project.png' 
                     alt='Next project' 
-                    animate={{ scale: isHovered ? 1.075 : 1 }} 
+                    animate={{ scale: isHovered ? 1.2 : 1 }} 
                     transition={{ duration: 0.35 }}
                 />
             </div>

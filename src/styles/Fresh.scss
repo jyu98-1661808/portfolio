@@ -1,0 +1,337 @@
+@import './App.scss';
+
+#Fresh {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    // justify-content: center;
+    margin-left: 3vw;
+    width: 70vw;
+    max-height: 525vh;
+
+    h1 {
+        font-size: 2.5vw;
+        margin-bottom: 0;
+        font-family: $primary-font-stack;
+        color: $primary-font-color;
+
+        @media screen and (max-width: $small) {
+            font-size: 8vw;
+        }
+    }
+
+    h3 {
+        font-size: 1.65vw;
+        margin-top: 0;
+        margin-bottom: 0;
+        font-family: $primary-font-stack;
+        color: $primary-font-color;
+
+        @media screen and (max-width: $small) {
+            font-size: 6vw;
+        }
+    }
+
+    h4 {
+        font-size: 1.25vw;
+        margin-top: 1vh;
+        margin-bottom: 0;
+        font-family: $primary-font-stack;
+        color: $primary-font-color;
+
+        @media screen and (max-width: $small) {
+            font-size: 6vw;
+        }
+    }
+
+    p {
+        color: $primary-font-color;
+        font-size: 0.9vw;
+        margin-top: 0.5vh;
+        line-height: 1.5;
+    }
+
+    div.about-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 5vh;
+        width: 70vw;
+        height: 65vh;
+
+        img {
+            width: 40%;
+            height: auto;
+        }
+
+        div.description-container {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            height: 100%;
+
+            p.about-main {
+                margin-top: 1vh;
+                font-size: 1.25vw;
+                line-height: 1.25;
+            }
+
+            hr {
+                width: 100%;
+                background-color: $secondary-font-color;
+            }
+
+            ol {
+                padding-left: 1.5vw;
+                margin-top: 0.5vh;
+            }
+
+            li {
+                padding-left: 0.5vw;
+                margin-bottom: 0.75vh;
+                font-size: 1vh;
+            }
+        }
+    }
+
+    div.research-container {
+        display: flex;
+        flex-direction: column;
+        width: 70vw;
+
+        div.research-table {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+
+            div.research-column {
+                display: flex;
+                flex-direction: column;
+                width: 50%;
+
+                ul {
+                    margin-top: 1vh;
+                    padding-left: 1vw;
+                }
+
+                p {
+                    line-height: 0.5;
+                }
+            }
+        }
+
+        div#fresh-paper {
+            margin-top: 3vh;
+            margin-bottom: 3vh;
+            align-self: center;
+            width: 70%;
+            height: 50vh;
+            box-shadow: 2px 2px 10px #888888;
+    
+            iframe {
+                width: 100%;
+                height: 100%;
+                align-self: center;
+            }
+        }
+    }
+
+    div.approach-container {
+        display: flex;
+        flex-direction: column;
+        width: 70vw;
+        margin-top: 4vh;
+
+        p.approach-main {
+            margin-top: -1vh;
+            font-size: 1.25vw;
+            line-height: 1.25;
+
+            img#whole-foods {
+                margin-left: 0.5vw;
+                margin-right: 0.5vw;
+                margin-bottom: -2vh;
+                width: 5%;
+                height: auto;
+            }
+
+            img#amazon-fresh {
+                margin-bottom: -0.2vh;
+                width: 5%;
+                height: auto;
+            }
+        }
+    }
+
+    div.design-container {
+        display: flex;
+        flex-direction: column;
+        width: 70vw;
+        margin-top: 3vh;
+
+        div.design-row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 1vh;
+
+            figure {
+                margin-left: 0;
+            }
+
+            figcaption {
+                margin-top: 1.25vh;
+                font-size: 0.75vw;
+            }
+
+            figure.storyboard {
+                width: 50%;
+                
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    box-shadow: 2px 2px 6px #8888887a;
+                }
+            }
+
+            figure.wireframe {
+                width: 50%;
+
+                div.wireframe-row {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    width: 100%;
+
+                    img {
+                        width: 49.5%;
+                        height: auto;
+                        box-shadow: 2px 2px 6px #88888863;
+                        margin-right: 1.25vw;
+                    }
+                }
+            }
+        }
+
+        div.low-fidelity-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 0.75vh;
+
+            div.low-fidelity-description {
+                display: flex;
+                flex-direction: column;
+                width: 31.5%;
+            }
+
+            img {
+                width: 65%;
+                margin-top: 1.5vh;
+                box-shadow: 2px 2px 6px #8888887a;
+            }
+        }
+
+        div.high-fidelity-container {
+            margin-top: 2vh;
+            width: 70vw;
+
+            div.screen-container {
+                display: flex;
+                flex-flow: row wrap;
+                align-items: flex-start;
+                width: 100%;
+
+                img {
+                    width: 12.5%;
+                    height: auto;
+                }
+
+                figure {
+                    width: 30%;
+                    align-self: flex-end;
+                    display: flex;
+                    flex-direction: column;
+                    margin-right: 0;
+
+                    img.high-link {
+                        margin-left: 3vw;
+                        width: 100%;
+                        height: auto;
+                    }
+
+                    figcaption {
+                        align-self: flex-end;
+                        margin-left: 3vw;
+                        margin-top: 1.25vh;
+                        font-size: 0.75vw;
+                    }
+                }
+            }
+        }
+    }
+
+    div.links-container {
+        margin-top: 4vh;
+        margin-bottom: 5vh; 
+
+        ul {
+            padding-left: 1.25vw;
+        }
+
+        li {
+            font-size: 2vh;
+            font-weight: bold;
+            font-family: $primary-font-stack;
+            line-height: 1.5;
+            color: #99C355;
+
+            a, a:visited {
+                font-size: 1.75vh;
+                font-weight: normal;
+                font-family: $secondary-font-stack;
+                color: $primary-font-color;
+                text-decoration: none;
+            }
+
+            a:hover {
+                font-weight: normal;
+                color: #99C355;
+                text-decoration: none;
+            }
+        }
+    }
+
+    div.next-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 7vh;
+        right: 1.5vw;
+        width: 8%;
+
+        a {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        img#next-arrow {
+            width: 100%;
+            height: auto;
+            margin-top: 1vh;
+        }
+
+        img#smile-logo {
+            width: 50%;
+            height: auto;
+        }
+    }
+}
