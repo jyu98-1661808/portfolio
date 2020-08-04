@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.016593c9.chunk.css",
+    "main.js": "/portfolio/static/js/main.29928674.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.29928674.chunk.js.map",
+    "runtime-main.js": "/portfolio/static/js/runtime-main.fb1b3dac.js",
+    "runtime-main.js.map": "/portfolio/static/js/runtime-main.fb1b3dac.js.map",
+    "static/js/2.04130711.chunk.js": "/portfolio/static/js/2.04130711.chunk.js",
+    "static/js/2.04130711.chunk.js.map": "/portfolio/static/js/2.04130711.chunk.js.map",
+    "index.html": "/portfolio/index.html",
+    "precache-manifest.e766c34d4793ece2c59c52ea8f303eed.js": "/portfolio/precache-manifest.e766c34d4793ece2c59c52ea8f303eed.js",
+    "service-worker.js": "/portfolio/service-worker.js",
+    "static/css/main.016593c9.chunk.css.map": "/portfolio/static/css/main.016593c9.chunk.css.map",
+    "static/js/2.04130711.chunk.js.LICENSE.txt": "/portfolio/static/js/2.04130711.chunk.js.LICENSE.txt",
+    "static/media/HabiHero.scss": "/portfolio/static/media/green-arrow.229dfdbf.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fb1b3dac.js",
+    "static/js/2.04130711.chunk.js",
+    "static/css/main.016593c9.chunk.css",
+    "static/js/main.29928674.chunk.js"
+  ]
+}
