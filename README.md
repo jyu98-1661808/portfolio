@@ -25,6 +25,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ## License 
 
 [![license](https://img.shields.io/github/license/DAVFoundation/captain-n3m0.svg?style=flat-square)](https://github.com/DAVFoundation/captain-n3m0/blob/master/LICENSE)
-Source code is licensed under the [MIT license](http://opensource.org/licenses/mit-license.php).
 
+Source code is licensed under the [MIT license](http://opensource.org/licenses/mit-license.php).
 Contents of this site are © Copyright 2020-2022 Jiyun Yu. All rights reserved.
