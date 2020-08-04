@@ -38,13 +38,16 @@ function App() {
             <Home />
           </Route>
           <Route path="/projects/habihero">
-            <HabiHero />
+            { width <= 500 && <Mobile /> }
+            { width > 500 && <HabiHero /> }
           </Route>
           <Route path="/projects/fresh">
-            <Fresh />
+            { width <= 500 && <Mobile /> }
+            { width > 500 && <Fresh /> }
           </Route>
           <Route path="/projects/splash">
-            <Splash />
+            { width <= 500 && <Mobile /> }
+            { width > 500 && <Splash /> }
           </Route>
           <Route path="/about">
             <About width={width} />
@@ -81,7 +84,7 @@ function Burger() {
         <div className='mobile-container'>
           <motion.img
             className='logo' 
-            src='./img/flower-logo.png' alt='logo' 
+            src='../img/flower-logo.png' alt='flower logo' 
             animate={{ rotate: isBurger ? 360 : 0 }} 
             transition={{ delay: 0.35, duration: 1.5 }}
           />
@@ -117,6 +120,17 @@ function Menu() {
       </NavLink>
     </div>
   );
+}
+
+function Mobile() {
+  return (
+      <div id='Mobile'>
+          <motion.img src='../img/projects/out-of-service.png' alt='out of service sign' />
+          <h3>Mobile version is under maintenance.</h3>
+          <h3>Updating soon!</h3>
+          <h3>Check out projects on desktop.</h3>
+      </div>
+  )
 }
 
 export default App;
