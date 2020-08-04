@@ -16,6 +16,7 @@ function Fresh() {
 
         rows.push(
             <motion.img 
+                key={i}
                 src={path} 
                 alt='High-fidelity screen' 
                 whileHover={{
@@ -89,7 +90,7 @@ function Fresh() {
                     </div>
                 </div>
                 <div id='fresh-paper'> 
-                    <iframe src="https://drive.google.com/file/d/1d0tWtuhVG2muNdSalIJA7L3_9H0Jwc_c/preview" />
+                    <iframe title='Document for AmazonFresh' src="https://drive.google.com/file/d/1d0tWtuhVG2muNdSalIJA7L3_9H0Jwc_c/preview" />
                 </div>
             </div>
             <div className='approach-container'>

@@ -15,7 +15,8 @@ function HabiHero() {
             <h1>Habi Hero</h1>
             <h3>Winter'20-Spring'20</h3>
             <div className='movie-container'>
-                <iframe src="https://www.youtube.com/embed/SnWm_Rk39J4" frameBorder="0" 
+                <iframe title='Habi Hero Demo Video' 
+                    src="https://www.youtube.com/embed/SnWm_Rk39J4" frameBorder="0" 
                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
             </div>
             <div className='about-container'>
@@ -68,7 +69,7 @@ function HabiHero() {
                     An online solution would allow them to have access to problems anywhere.
                 </p>
                 <div id='habihero-paper'> 
-                    <iframe src="https://drive.google.com/file/d/19JYGAFIVOcd920waF8Ibto050LlBl9hd/preview" />
+                    <iframe title='Habi Hero: An Online Math Resource for First Grade Students' src="https://drive.google.com/file/d/19JYGAFIVOcd920waF8Ibto050LlBl9hd/preview" />
                 </div>
             </div>
             <div className='design-container'>

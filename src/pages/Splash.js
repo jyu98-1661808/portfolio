@@ -27,6 +27,7 @@ function Splash() {
 
         rows.push(
             <motion.img 
+                key={i}
                 src={path} 
                 alt='High-fidelity screen' 
                 whileHover={{
