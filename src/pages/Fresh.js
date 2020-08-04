@@ -151,7 +151,15 @@ function Fresh() {
                             { rows }
                             <figure>
                                 <a href='https://projects.invisionapp.com/prototype/AmazonFresh-ck22gfle7001v8l0134l2c3d4/play/9d324687'  target="_blank" rel="noopener noreferrer">
-                                    <img className='high-link' src='../img/projects/fresh/high-link.png' alt='Link to invision prototype' />
+                                <motion.img 
+                                    className='high-link' 
+                                    src='../img/projects/fresh/high-link.png' 
+                                    alt='Link to invision prototype'
+                                    whileHover={{
+                                        scale: 1.05,
+                                        rotate: 15,
+                                        transition: { duration: 1 },
+                                    }} /> 
                                 </a>
                                 <figcaption><span style={{fontWeight: 'bold'}}>Click </span>  phone above to test prototype. </figcaption>
                             </figure>

@@ -20,6 +20,22 @@ function Splash() {
         arrows: false,
     };
 
+    var rows = [];
+
+    for (var i = 1; i < 9; i++) {
+        var path = '../img/projects/splash/screen-' + i + '.png'
+
+        rows.push(
+            <motion.img 
+                src={path} 
+                alt='High-fidelity screen' 
+                whileHover={{
+                    scale: 1.5,
+                    transition: { duration: 1 },
+                }} />
+        );
+    }
+
     return (
         <div id='Splash'>
             <h1>Splash</h1>
@@ -104,10 +120,33 @@ function Splash() {
                         <h4>Solutions</h4>
                         <ul>
                             <li><p>Sponsorship from notable water companies</p></li>
-                            <li><p>Environmental footprint of plastic water bottle production</p></li>
-                            <li><p>Tracking users' water consumption</p></li>
+                            <li><p>Donations from users and water companies</p></li>
+                            <li><p>Educating users on the value of healthy water consumption</p></li>
+                            <li><p>Championing the games's initiative to relieve the water crisis</p></li>
                         </ul>
                     </div>
+                </div>
+                <p>
+                    <span style={{fontWeight: 'bold'}}>Hover </span>  over the screens to see details.
+                </p>
+                <div className='high-fidelity-container'>
+                    <div className='screen-container'>
+                        { rows }
+                    </div>
+                    <figure>
+                        <a href='https://projects.invisionapp.com/prototype/AmazonFresh-ck22gfle7001v8l0134l2c3d4/play/9d324687'  target="_blank" rel="noopener noreferrer">
+                            <motion.img 
+                                className='high-link' 
+                                src='../img/projects/splash/splash-link.png' 
+                                alt='Link to invision prototype'
+                                whileHover={{
+                                    scale: 1.05,
+                                    rotate: 15,
+                                    transition: { duration: 1 },
+                                }} /> 
+                        </a>
+                        <figcaption><span style={{fontWeight: 'bold'}}>Click </span>  phone above to test prototype. </figcaption>
+                    </figure>
                 </div>
             </div>
             <div className='links-container'>

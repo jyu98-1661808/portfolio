@@ -48,15 +48,19 @@
         color: $primary-font-color;
         font-size: 0.9vw;
         margin-top: 0.5vh;
+        line-height: 1.5;
     }
 
     div.slick-slider {
         align-self: center;
         width: 70%;
-        height: 48.5%;
         margin-top: 3vh;
         margin-bottom: 3vh;
         box-shadow: 2px 2px 10px #888888;
+
+        div.slick-list {
+            margin-bottom: -0.25vh;
+        }
     }
 
     div.intro-container {
@@ -65,6 +69,7 @@
         justify-content: space-between;
         width: 70vw;
         height: 21vh;
+        margin-top: 1vh;
 
         div.about-container {
             display: flex;
@@ -105,6 +110,7 @@
     }
 
     div.research-container {
+        margin-top: 1.25vh;
         margin-bottom: 1vh;
 
         hr {
@@ -147,10 +153,52 @@
                 }
             }
         }
+
+        div.high-fidelity-container {
+            display: flex;
+            width: 70vw;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1.5vh;
+    
+            figure {
+                width: 35%;
+                display: flex;
+                flex-direction: column;
+                margin-right: 0;
+    
+                img.high-link {
+                    width: 100%;
+                    height: auto;
+                }
+    
+                figcaption {
+                    margin-left: 4vw;
+                    margin-top: 1.25vh;
+                    font-size: 0.75vw;
+                }
+            }
+        }
+    
+        div.screen-container {
+            align-self: center;
+            display: flex;
+            flex-flow: row wrap;
+            align-items: flex-start;
+            width: 75%;
+    
+            img {
+                margin-right: 2vw;
+                margin-bottom: 2vw;
+                width: 20%;
+                height: auto;
+                box-shadow: 2px 2px 6px #8888887a;
+            }
+        }
     }
 
     div.links-container {
-        margin-top: 4vh;
+        margin-top: 2vh;
         margin-bottom: 5vh; 
 
         ul {
