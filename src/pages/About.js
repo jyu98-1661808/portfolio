@@ -55,7 +55,7 @@ function About({width}) {
                     </p>
                 </motion.div>
                 <div className='button-container'>
-                    <motion.a href="" download
+                    <motion.a href="https://drive.google.com/file/d/1odRMgR3G8UxSf_bmcofdOCwfiDrSaXB3/view?usp=sharing" download
                         whileHover={{
                             rotate: 360,
                             transition: { duration: 1 },

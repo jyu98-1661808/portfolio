@@ -125,7 +125,7 @@ function Menu() {
 function Mobile() {
   return (
       <div id='Mobile'>
-          <motion.img src='./img/projects/out-of-service.png' alt='out of service sign' />
+          <motion.img src='../img/projects/out-of-service.png' alt='out of service sign' />
           <h3>Mobile version is under maintenance.</h3>
           <h3>Updating soon!</h3>
           <h3>Check out projects on desktop.</h3>
