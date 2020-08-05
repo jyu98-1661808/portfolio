@@ -27,10 +27,10 @@ function App() {
 
   return (
     <div id="App">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <header className="navigation">
           <Burger />
-          <img className='logo' src='../img/flower-logo.png' alt='logo' />
+          <img className='logo' src='./img/flower-logo.png' alt='logo' />
           <Menu />
         </header>
         <Switch>
@@ -84,7 +84,7 @@ function Burger() {
         <div className='mobile-container'>
           <motion.img
             className='logo' 
-            src='../img/flower-logo.png' alt='flower logo' 
+            src='./img/flower-logo.png' alt='flower logo' 
             animate={{ rotate: isBurger ? 360 : 0 }} 
             transition={{ delay: 0.35, duration: 1.5 }}
           />
@@ -125,7 +125,7 @@ function Menu() {
 function Mobile() {
   return (
       <div id='Mobile'>
-          <motion.img src='../img/projects/out-of-service.png' alt='out of service sign' />
+          <motion.img src='./img/projects/out-of-service.png' alt='out of service sign' />
           <h3>Mobile version is under maintenance.</h3>
           <h3>Updating soon!</h3>
           <h3>Check out projects on desktop.</h3>

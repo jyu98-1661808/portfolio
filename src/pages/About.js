@@ -29,22 +29,22 @@ function About({width}) {
 
     return (
         <div id='About'>
-            <motion.img id='me' src='../img/about/me-2.png' alt='Photo of Jiyun Yu'  initial={{ y: -150, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ y: { type: "spring", stiffness: 200, duration: 1 } }}/>
+            <motion.img id='me' src='./img/about/me-2.png' alt='Photo of Jiyun Yu'  initial={{ y: -150, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ y: { type: "spring", stiffness: 200, duration: 1 } }}/>
             <div className='about-container'>
                 <motion.h1  
                     initial={{ opacity: 0 }} 
                     animate={{ opacity: 1 }} 
                     transition={{ duration: 1.75 }} >
-                    Hi, my name is <img id='my-name' src='../img/about/jiyun.png' alt='Jiyun Yu' />.
+                    Hi, my name is <img id='my-name' src='./img/about/jiyun.png' alt='Jiyun Yu' />.
                 </motion.h1>
                 <motion.div 
                     initial={{ opacity: 0 }} 
                     animate={{ opacity: 1 }} 
                     transition={{ delay: 0.35, duration: 1.25 }} > 
                     <h3>I'm a &nbsp;
-                        <span><img id='front-end' src='../img/about/front-end.png' alt='front-end developer' /></span>
+                        <span><img id='front-end' src='./img/about/front-end.png' alt='front-end developer' /></span>
                         &nbsp; in &nbsp;
-                        <span><img id='seattle' src='../img/about/seattle.png' alt='seattle, washington' /></span>
+                        <span><img id='seattle' src='./img/about/seattle.png' alt='seattle, washington' /></span>
                         <br/>
                         focused on web/mobile design.
                     </h3>
@@ -61,7 +61,7 @@ function About({width}) {
                             transition: { duration: 1 },
                         }} >
                         <motion.img id='resume' 
-                            src='../img/about/resume-button.png' alt='click for resume' 
+                            src='./img/about/resume-button.png' alt='click for resume' 
                             initial={{ x: '50vw' }} 
                             animate={{ x: 0, rotate: 360 }} 
                             transition={{ duration: 1 }}  />
@@ -73,7 +73,7 @@ function About({width}) {
                         }} >
                         <NavLink id='contact' to="/contact">
                             <motion.img id='contact' 
-                                src='../img/about/contact-button.png' alt='click for contact'
+                                src='./img/about/contact-button.png' alt='click for contact'
                                 initial={{ x: '50vw' }} 
                                 animate={{ x: 0, rotate: 360 }} 
                                 transition={{ delay: 0.35, duration: 1 }}
@@ -90,7 +90,7 @@ function About({width}) {
                             transition: { duration: 1 },
                         }} >
                         <motion.img id='fun' 
-                            src='../img/about/fun-button.png' alt='click for fun'
+                            src='./img/about/fun-button.png' alt='click for fun'
                             initial={{ x: '50vw' }} 
                             animate={{ x: 0, rotate: 360 }} 
                             transition={{ delay: 0.65, duration: 1 }}
@@ -126,7 +126,7 @@ function SmileWall() {
     for (var i = 0; i < 20; i++) {
         rows.push(
             <motion.img 
-                src='../img/about/smile-logo.png' 
+                src='./img/about/smile-logo.png' 
                 alt='smile logo' 
                 custom={i}
                 initial="hidden"

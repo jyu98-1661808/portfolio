@@ -16,7 +16,7 @@ function Contact() {
                     <a href="https://github.com/jyu98-1661808/">
                         <span className='github'>
                             <motion.img 
-                                src='../img/contact/github-icon.png' alt='github icon'
+                                src='./img/contact/github-icon.png' alt='github icon'
                                 whileHover={{
                                     rotate: 360,
                                     transition: { duration: 0.75 },
@@ -28,14 +28,14 @@ function Contact() {
             </motion.div>
             <motion.img 
                 className='left-hand' 
-                src='../img/contact/left-hand.png' alt='left hand' 
+                src='./img/contact/left-hand.png' alt='left hand' 
                 initial={{ x: '-50vw' }} 
                 animate={{ x: 0 }} 
                 transition={{ x: { ease: "easeOut", duration: 1 } }}
             />
             <motion.img 
                 className='right-hand' 
-                src='../img/contact/right-hand.png' 
+                src='./img/contact/right-hand.png' 
                 alt='right hand' 
                 initial={{ x: '50vw' }} 
                 animate={{ x: 0 }} 

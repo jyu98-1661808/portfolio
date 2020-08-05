@@ -13,7 +13,7 @@ function Home() {
       <div id="Home">
         <div id='project-1' className='project-container'>
             <motion.div className='polaroid-container' initial={{ y: -150, opacity: 0 }} animate={{ y: 0, opacity: 1, scale: isHovered1 ? 1.075 : 1 }} transition={{ y: { type: "spring", stiffness: 200, duration: 1 }, scale: { duration: 0.35 }, }}>
-                <img src='../img/projects/habi-polaroid.png' alt='habi hero project' />
+                <img src='./img/projects/habi-polaroid.png' alt='habi hero project' />
             </motion.div>
             <motion.div className='description-container' initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ y: { type: "spring", stiffness: 200 }, default: { duration: 1 }, }}>
                 <div className='description'>
@@ -27,7 +27,7 @@ function Home() {
                     onMouseLeave={() => setHovered1(false)}
                 >
                     <motion.img 
-                        src='../img/projects/green-arrow.png' 
+                        src='./img/projects/green-arrow.png' 
                         alt='arrow button' 
                         whileHover={{
                             rotate: 360,
@@ -39,7 +39,7 @@ function Home() {
         </div>
         <div id='project-2' className='project-container'>
             <motion.div className='polaroid-container' initial={{ y: -150, opacity: 0 }} animate={{ y: 0, opacity: 1, scale: isHovered2 ? 1.075 : 1 }} transition={{ y: { delay: 0.35, type: "spring", stiffness: 200, duration: 1 }, scale: { duration: 0.35 }, }}>
-                <img src='../img/projects/fresh-polaroid.png' alt='amazon fresh project' />
+                <img src='./img/projects/fresh-polaroid.png' alt='amazon fresh project' />
             </motion.div>
             <motion.div className='description-container' initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.35, y: { type: "spring", stiffness: 200 }, default: { duration: 1 }, }}>
                 <div className='description'>
@@ -53,7 +53,7 @@ function Home() {
                     onMouseLeave={() => setHovered2(false)}
                 >
                     <motion.img 
-                        src='../img/projects/orange-arrow.png' 
+                        src='./img/projects/orange-arrow.png' 
                         alt='arrow button' 
                         whileHover={{
                             rotate: 360,
@@ -65,7 +65,7 @@ function Home() {
         </div>
         <div id='project-3' className='project-container'>
             <motion.div className='polaroid-container' initial={{ y: -150, opacity: 0 }} animate={{ y: 0, opacity: 1, scale: isHovered3 ? 1.075 : 1 }} transition={{ y: { delay: 0.65, type: "spring", stiffness: 200, duration: 1 }, scale: { duration: 0.35 }, }}>
-                <img src='../img/projects/splash-polaroid.png' alt='splash project' />
+                <img src='./img/projects/splash-polaroid.png' alt='splash project' />
             </motion.div>
             <motion.div className='description-container' initial={{ y: 50, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.65, y: { type: "spring", stiffness: 200 }, default: { duration: 1 }, }}>
                 <div className='description'>
@@ -79,7 +79,7 @@ function Home() {
                     onMouseLeave={() => setHovered3(false)}
                 >
                     <motion.img 
-                        src='../img/projects/pink-arrow.png' 
+                        src='./img/projects/pink-arrow.png' 
                         alt='arrow button' 
                         whileHover={{
                             rotate: 360,
