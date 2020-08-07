@@ -14,9 +14,56 @@ body {
   margin: 0;
 }
 
-#App {
+#Loading {
   display: flex;
-  background: $background-color;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ea94a8;
+  background-image: url('../backgrounds/loading-background.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transition: 0.5s;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+
+
+  @media screen and (max-width: $small) {
+    img {
+      width: auto;
+      height: 30%;
+    }
+
+    h1 {
+      font-family: $primary-font-stack;
+      color: black;
+      margin-top: 4vh;
+      font-size: 3vh;
+    }
+  }
+
+  @media screen and (min-width: $medium) {
+    img {
+      width: auto;
+      height: 45%;
+    }
+
+    h1 {
+      font-family: $primary-font-stack;
+      color: black;
+      margin-top: 4vh;
+      font-size: 4.5vh;
+    }
+  } 
+}
+
+#Loaded {
+  display: none;
+  background-color: $background-color;
+  background-image: url('../backgrounds/background.png');
+  background-repeat: repeat;
+  background-size: contain;
   width: 100vw;
   min-height: 100vh;
 
@@ -243,7 +290,7 @@ body {
     p {
       font-size: 1vw;
       font-family: $primary-font-stack;
-      color: $secondary-font-color;
+      color: black;
     }
   }
 

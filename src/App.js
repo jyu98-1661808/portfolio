@@ -5,7 +5,7 @@ import {
   Route,
   NavLink
 } from "react-router-dom";
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -15,51 +15,83 @@ import Splash from './pages/Splash';
 import './styles/App.scss';
 
 function App() {
+  const [isLoading, setLoading] = useState(true)
   const [width, setWidth] = useState(window.innerWidth)
 
+  // runs when screen width changes
   useEffect(() =>
     window.addEventListener('resize', () => checkWidth())
-  )
+  , [width])
 
   function checkWidth() {
     setWidth(window.innerWidth)
   }
 
+  // runs once when page loads
+  useEffect(() => {
+    let timer = setTimeout(() => {
+      document.getElementById('Loading').style.height = '0vh'
+      document.getElementById('Loaded').style.display = 'flex'
+      setLoading(false)
+    }, 2500)
+
+    return () => {
+      clearTimeout(timer)
+    }
+  },[])
+
   return (
     <div id="App">
-      <Router basename={process.env.PUBLIC_URL}>
-        <header className="navigation">
-          <Burger />
-          <img className='logo' src='./img/flower-logo.png' alt='logo' />
-          <Menu />
-        </header>
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/projects/habihero">
-            { width <= 500 && <Mobile /> }
-            { width > 500 && <HabiHero /> }
-          </Route>
-          <Route path="/projects/fresh">
-            { width <= 500 && <Mobile /> }
-            { width > 500 && <Fresh /> }
-          </Route>
-          <Route path="/projects/splash">
-            { width <= 500 && <Mobile /> }
-            { width > 500 && <Splash /> }
-          </Route>
-          <Route path="/about">
-            <About width={width} />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-        </Switch>
-        <footer className='page'>
-          <p>by Jiyun Yu.</p>
-        </footer>
-      </Router>
+      <div id='Loading'>
+        <motion.img
+          src='./img/loading-logo.png'
+          alt='Loading logo'
+          initial={{ x: -1000 }}
+          animate={{ x: 0, rotate: 360 }}
+          transition={{ duration: 3, type: 'spring' }}
+        />
+        { isLoading && <motion.h1
+          initial={{ y: 5000 }}
+          animate={{ y: 0 }}
+          transition={{ delay: 0.25, duration: 1.5, type: 'spring', damping: 15 }}>
+          developed by jiyun yu.
+        </motion.h1> }
+      </div>
+      <div id="Loaded">
+        <Router basename={process.env.PUBLIC_URL}>
+          <header className="navigation">
+            <Burger />
+            <img className='logo' src='./img/flower-logo.png' alt='logo' />
+            <Menu />
+          </header>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/projects/habihero">
+              {width <= 500 && <Mobile />}
+              {width > 500 && <HabiHero />}
+            </Route>
+            <Route path="/projects/fresh">
+              {width <= 500 && <Mobile />}
+              {width > 500 && <Fresh />}
+            </Route>
+            <Route path="/projects/splash">
+              {width <= 500 && <Mobile />}
+              {width > 500 && <Splash />}
+            </Route>
+            <Route path="/about">
+              <About width={width} />
+            </Route>
+            <Route path="/contact">
+              <Contact />
+            </Route>
+          </Switch>
+          <footer className='page'>
+            <p>by Jiyun Yu.</p>
+          </footer>
+        </Router>
+      </div>
     </div>
   );
 }
