@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import '../styles/Home.scss';
 
 function Home() {
+    window.scrollTo(0, 0)
+    
     const [isHovered1, setHovered1] = useState(false);
     const [isHovered2, setHovered2] = useState(false);
     const [isHovered3, setHovered3] = useState(false);

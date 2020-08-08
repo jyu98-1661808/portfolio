@@ -1,7 +1,25 @@
 @import './App.scss';
 
-#Habi-hero {
+#Loading-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #e9ffed;
+    background-image: url('../backgrounds/loading-1.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    transition: 0.5s;
+    width: 100vw;
+    height: 100vh;
+    z-index: 3;
+}
+
+#Habi-hero-loaded {
+    display: none;
     flex-direction: column;
     align-items: left;
     // justify-content: center;
