@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 import '../styles/Splash.scss';
 
 function Splash() {
-    document.body.style.overflowY = 'visible'
     document.body.style.overflowX = 'hidden'
-
+    document.body.style.overflowY = 'visible'
+    
     const [isHovered, setHovered] = useState(false);
 
     // runs once when page loads
@@ -21,7 +21,6 @@ function Splash() {
 
         return () => {
             clearTimeout(timer)
-            document.getElementById('Loading-3').style.display = 'none'
         }
     }, [])
 

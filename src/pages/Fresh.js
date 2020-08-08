@@ -6,7 +6,6 @@ import '../styles/Fresh.scss';
 function Fresh() {
     document.body.style.overflowY = 'visible'
     document.body.style.overflowX = 'hidden'
-
     const [isHovered, setHovered] = useState(false);
 
      // runs once when page loads
@@ -20,7 +19,6 @@ function Fresh() {
 
         return () => {
             clearTimeout(timer)
-            document.getElementById('Loading-2').style.display = 'none'
         }
     }, [])
 

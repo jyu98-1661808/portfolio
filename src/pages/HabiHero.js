@@ -21,7 +21,6 @@ function HabiHero() {
 
         return () => {
             clearTimeout(timer)
-            document.getElementById('Loading-1').style.display = 'none'
         }
     }, [])
 
