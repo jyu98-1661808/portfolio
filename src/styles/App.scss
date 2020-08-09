@@ -291,6 +291,10 @@ body {
       font-size: 1vw;
       font-family: $primary-font-stack;
       color: black;
+
+      @media screen and (max-width: $small) {
+        font-size: 2vw;
+      }
     }
   }
 

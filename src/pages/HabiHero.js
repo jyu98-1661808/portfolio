@@ -9,6 +9,47 @@ function HabiHero() {
     document.body.style.overflowX = 'hidden'
 
     const [isHovered, setHovered] = useState(false);
+    const [width, setWidth] = useState(window.innerWidth);
+    var settings = {
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true
+    };
+
+    if (width < 500) {
+        settings = {
+            arrows: false,
+            dots: true,
+            infinite: true,
+            speed: 800,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true
+        };
+    } 
+
+    // runs when screen width changes
+    useEffect(() =>
+        window.addEventListener('resize', () => checkWidth())
+        , [width])
+
+    function checkWidth() {
+        setWidth(window.innerWidth)
+        console.log(width)
+        if (width < 500) {
+            settings = {
+                arrows: false,
+                infinite: true,
+                speed: 900,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true
+            };
+        } 
+    }
 
     // runs once when page loads
     useEffect(() => {
@@ -155,9 +196,9 @@ function HabiHero() {
                         We decided that Habi Hero should also incorporate a way for teachers to use our design in order to better promote the values of effectiveness, accessibility, and customization in practicing Common Core Standards.
                         Teachers can create and customize lessons, as well as, view student progress and results. In this final prototype, we also gave students ways to customize their hero avatar to further promote engagement with the game.
                         By redeeming their coins through additional customizations for their hero avatar, our game gives them greater motivation to continue playing.
-                </p>
+                    </p>
                     <div className='carousel'>
-                        <Slides />
+                        <Slides settings={ settings } />
                     </div>
                 </div>
                 <div className='links-container'>
@@ -225,16 +266,7 @@ function HabiHero() {
     );
 }
 
-function Slides() {
-    const settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true
-    };
-
+function Slides({ settings }) {
     return (
         <Slider {...settings}>
             <img src='../img/projects/habihero/game-main.png' alt='Habi Hero game main page' />

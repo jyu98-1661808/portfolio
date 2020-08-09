@@ -22,10 +22,18 @@
     display: none;
     flex-direction: column;
     align-items: left;
-    // justify-content: center;
+    justify-content: flex-start;
     margin-left: 3vw;
     width: 70vw;
+    min-height: 100vh;
     max-height: 495vh;
+
+    @media screen and (max-width: $small) {
+        margin-left: 0;
+        align-items: center;
+        width: 90vw;
+        overflow-x: hidden;
+    }
 
     h1 {
         font-size: 2.5vw;
@@ -58,7 +66,8 @@
         color: $primary-font-color;
 
         @media screen and (max-width: $small) {
-            font-size: 6vw;
+            margin-top: 0.25vh;
+            font-size: 4vw;
         }
     }
 
@@ -67,12 +76,21 @@
         font-size: 0.9vw;
         margin-top: 0.5vh;
         line-height: 1.5;
+
+        @media screen and (max-width: $small) {
+            font-size: 1.75vw;
+        }
     }
 
     p.about-main {
         margin-top: 1vh;
         font-size: 1.25vw;
         line-height: 1.25;
+
+        @media screen and (max-width: $small) {
+            font-size: 2vw;
+            line-height: 1.75;
+        }
 
         span img {
             margin-left: -0.2vw;
@@ -87,13 +105,23 @@
         justify-content: space-between;
         margin-top: 5vh;
         width: 70vw;
-        height: 45vh;
+        min-height: 37.5vh;
+
+        @media screen and (max-width: $small) {
+            margin-top: 1.5vh;
+            flex-direction: column;
+            width: 80vw;
+        }
 
         div.description-container {
             display: flex;
             flex-direction: column;
             width: 55%;
             height: 100%;
+
+            @media screen and (max-width: $small) {
+                width: 100%;
+            }
         }
 
         div.tools-container {
@@ -101,6 +129,12 @@
             flex-direction: column;
             width: 35%;
             height: 100%;
+
+            @media screen and (max-width: $small) {
+                margin-top: 1.5vh;
+                width: 100%;
+                height: auto;
+            }
             
             div.logo-container {
                 display: flex;
@@ -109,14 +143,28 @@
                 margin-top: 1.75vh;
                 height: 20%;
 
+                @media screen and (max-width: $small) {
+                    width: 80%;
+                    height: 15%;
+                }
+
                 img {
-                    height: 75%;
+                    height: 7.5vh;
                     width: auto;
+
+                    @media screen and (max-width: $small) {
+                        height: 5vh;
+                        width: auto;
+                    }
                 }
             }
 
             p {
                 margin-top: 1.5vh;
+
+                @media screen and (max-width: $small) {
+                    margin-top: 1vh;
+                }
             }
         }
     }
@@ -129,6 +177,12 @@
         height: 50vh;
         box-shadow: 2px 2px 10px #888888;
 
+        @media screen and (max-width: $small) {
+            align-items: center;
+            width: 80vw;
+            height: 25vh;
+        }
+    
         iframe {
             width: 100%;
             height: 100%;
@@ -141,6 +195,10 @@
         align-items: left;
         margin-top: 1.5vh;
         width: 70vw;
+
+        @media screen and (max-width: $small) {
+            width: 80vw;
+        }
     }
 
     div#habihero-paper {
@@ -150,6 +208,11 @@
         width: 70%;
         height: 68vh;
         box-shadow: 2px 2px 10px #888888;
+
+        @media screen and (max-width: $small) {
+            width: 100%;
+            height: 30vh;
+        }
 
         iframe {
             width: 100%;
@@ -161,8 +224,12 @@
     div.design-container {
         display: flex;
         flex-direction: column;
-        margin-top: 3vh;
+        margin-top: 2.25vh;
         width: 70vw;
+
+        @media screen and (max-width: $small) {
+            width: 80vw;
+        }
 
         div.wireframe-container { 
             display: flex;
@@ -170,10 +237,21 @@
             margin-top: 1.5vh;
             margin-left: -1vw;
 
+            @media screen and (max-width: $small) {
+                flex-direction: column-reverse;
+                margin-top: 0.5vh;
+                margin-left: 0vw;
+            }
+
             img.wireframe {
                 width: 35vw;
                 height: auto;
                 margin-right: 2vw;
+
+                @media screen and (max-width: $small) {
+                    width: 80vw;
+                    margin-right: 0vw;
+                }
             }
 
             div.wireframe-description {
@@ -187,12 +265,25 @@
             flex-direction: row;
             margin-bottom: 2.5vh;
 
+            @media screen and (max-width: $small) {
+                flex-direction: column-reverse;
+                margin-top: 0.75vh;
+                margin-bottom: 1vh;
+            }
+
             img.low-fidelity {
                 width: 33vw;
                 height: auto;
                 box-shadow: 2px 2px 8px #88837575;
                 margin-top: 1.5vh;
                 margin-right: 3vw;
+
+                @media screen and (max-width: $small) {
+                    align-self: center;
+                    width: 75vw;
+                    margin-right: 0vw;
+                    margin-bottom: 1vh;
+                }
             }
 
             div.low-fidelity-description {
@@ -207,9 +298,23 @@
             justify-content: space-between;
             width: 70vw;
 
+            @media screen and (max-width: $small) {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            @media screen and (max-width: $small) {
+                width: 80vw;
+            }
+
             figcaption {
                 margin-top: 1vh;
                 font-size: 0.75vw;
+
+                @media screen and (max-width: $small) {
+                    font-size: 1.25vw;
+                }
+    
             }
 
             div.visual-columns {
@@ -217,6 +322,10 @@
                 flex-direction: column;
                 justify-content: space-evenly;
                 width: 60%;
+
+                @media screen and (max-width: $small) {
+                    width: 100%;
+                }
 
                 figure {
                     margin-left: 0;
@@ -241,8 +350,13 @@
                     width: 100%;
                     height: 15vh;
 
+                    @media screen and (max-width: $small) {
+                        height: auto;
+                        align-items: baseline;
+                    }    
+
                     figure#habihero-logo {
-                        width: 67.5%;
+                        width: 67.5%;   
 
                         img {
                             width: 100%;
@@ -254,6 +368,10 @@
                         width: 30%;
                         margin-right:0;
 
+                        @media screen and (max-width: $small) {
+                            width: 30%;
+                        } 
+
                         img {
                             width: 50%;
                             height: auto;
@@ -264,6 +382,11 @@
 
             figure {
                 width: 30%;
+
+                @media screen and (max-width: $small) {
+                    width: 50%;
+                }
+                
                 img#characters {
                     width: 92.5%;
                     height: auto;
@@ -277,14 +400,28 @@
             justify-content: center;
             align-self: center;
             width: 60vw;
-            height: 60vh;
+            height: auto;
             margin-top: 3vh;
-            margin-bottom: 8vh;
+            margin-bottom: 3vh;
+        
+            @media screen and (max-width: $small) {
+                height: auto;
+                width: 100%;
+                margin-top: 1.5vh;
+            }
 
             div.slick-slider {
                 width: 100%;
+                height: auto;
 
                 button {
+                    height: 7.5vh;
+                    width: 7.5vw;
+                    z-index: 2;
+                    border: none;
+                }
+
+                button.slick-next {
                     background-image: url(../backgrounds/green-arrow.png);
                     background-size: contain;
                     background-repeat: no-repeat;
@@ -294,17 +431,19 @@
                     -ms-transform: rotate(90deg);
                     -o-transform: rotate(90deg);
                     transform: rotate(90deg);
-                    height: 7.5vh;
-                    width: 7.5vw;
-                    z-index: 2;
-                    border: none;
-                }
-
-                button.slick-next {
                     margin-right: -6vw;
                 }
 
                 button.slick-prev {
+                    background-image: url(../backgrounds/green-arrow.png);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: 50% 50%;
+                    -webkit-transform: rotate(90deg);
+                    -moz-transform: rotate(90deg);
+                    -ms-transform: rotate(90deg);
+                    -o-transform: rotate(90deg);
+                    transform: rotate(90deg);
                     margin-left: -6vw;
                     -webkit-transform: rotate(-90deg);
                     -moz-transform: rotate(-90deg);
@@ -319,12 +458,16 @@
 
                 div.slick-list {
                     width: 60vw;
-                    height: 100%;
                     box-shadow: 2px 2px 10px #888375d3;
+
+                    @media screen and (max-width: $small) {
+                        height: auto;
+                        width: 100%;
+                    }
 
                     img {
                         width: 60vw;
-                        height: 60vh;
+                        height: 100%;
                     }
                 }
             }
@@ -333,9 +476,28 @@
 
     div.links-container {
         margin-bottom: 3vh; 
+
+        @media screen and (max-width: $small) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: auto;
+            width: 90%;
+            margin-bottom: 8vh;
+        }
+
+        h3 {
+            align-self: flex-start;
+        }
         
         ul {
             padding-left: 1.25vw;
+            width: 100%;
+            list-style-position: inside;
+
+            @media screen and (max-width: $small) {
+                overflow: auto;
+            }
         }
 
         li {
@@ -344,6 +506,7 @@
             font-family: $primary-font-stack;
             line-height: 1.5;
             color: #99C355;
+            float: left;
 
             a, a:visited {
                 font-size: 1.75vh;
@@ -351,6 +514,11 @@
                 font-family: $secondary-font-stack;
                 color: $primary-font-color;
                 text-decoration: none;
+
+                @media screen and (max-width: $small) {
+                    display: block;
+                    font-size: 1.5vh;
+                }
             }
 
             a:hover {
@@ -371,6 +539,10 @@
         right: 1.5vw;
         width: 8%;
 
+        @media screen and (max-width: $small) {
+            width: 20%;
+        }
+
         a {
             display: flex;
             flex-direction: column;
@@ -382,11 +554,19 @@
             width: 100%;
             height: auto;
             margin-top: 1vh;
+
+            @media screen and (max-width: $small) {
+                margin-top: 0.5vh;
+            }
         }
 
         img#smile-logo {
             width: 50%;
             height: auto;
+        }
+
+        @media screen and (max-width: $small) {
+            bottom: 3vh;
         }
     }
 }
