@@ -10,14 +10,8 @@ function HabiHero() {
 
     const [isHovered, setHovered] = useState(false);
     const [width, setWidth] = useState(window.innerWidth);
-    var settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true
-    };
+
+    var settings = {}
 
     if (width < 500) {
         settings = {
@@ -29,42 +23,62 @@ function HabiHero() {
             slidesToScroll: 1,
             autoplay: true
         };
-    } 
-
-    // runs when screen width changes
-    useEffect(() =>
-        window.addEventListener('resize', () => checkWidth())
-        , [width])
-
-    function checkWidth() {
-        setWidth(window.innerWidth)
-        console.log(width)
-        if (width < 500) {
-            settings = {
-                arrows: false,
-                infinite: true,
-                speed: 900,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                autoplay: true
-            };
-        } 
+    } else {
+        settings = {
+            dots: false,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true
+        };
     }
 
     // runs once when page loads
     useEffect(() => {
         window.scrollTo(0, 0)
 
-        let timer = setTimeout(() => {
-            document.getElementById('Loading-1').style.top = '-100%'
+        if (width < 500) {
+            document.getElementById('Loading-1').style.display = 'none'
             document.getElementById('Habi-hero-loaded').style.display = 'flex'
-        }, 1250)
+        } else {
+            let timer = setTimeout(() => {
+                document.getElementById('Loading-1').style.top = '-100%'
+                document.getElementById('Habi-hero-loaded').style.display = 'flex'
+            }, 1250)
 
-        return () => {
-            clearTimeout(timer)
+            return () => {
+                clearTimeout(timer)
+            }
         }
     }, [])
 
+    // runs when screen width changes
+    useEffect(() =>
+        window.addEventListener('resize', () => {
+            setWidth(window.innerWidth)
+
+            if (width < 500) {
+                settings = {
+                    arrows: false,
+                    infinite: true,
+                    speed: 900,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true
+                };
+            } else {
+                settings = {
+                    dots: false,
+                    infinite: true,
+                    speed: 500,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    autoplay: true
+                };
+            }
+        })
+        , [width])
 
     return (
         <div id='Habi-hero'>

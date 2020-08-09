@@ -3,7 +3,7 @@ import {
   HashRouter as Router,
   Switch,
   Route,
-  NavLink
+  NavLink,
 } from "react-router-dom";
 import { motion } from 'framer-motion';
 import Home from './pages/Home';
@@ -69,8 +69,6 @@ function App() {
               <Home />
             </Route>
             <Route path="/projects/habihero">
-              {/* {width <= 500 && <Mobile />}
-              {width > 500 && <HabiHero />} */}
               <HabiHero />
             </Route>
             <Route path="/projects/fresh">

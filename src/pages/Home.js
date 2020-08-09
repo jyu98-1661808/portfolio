@@ -10,7 +10,6 @@ function Home() {
     const [isHovered2, setHovered2] = useState(false);
     const [isHovered3, setHovered3] = useState(false);
 
-
     return (
       <div id="Home">
         <div id='project-1' className='project-container'>
@@ -27,6 +26,7 @@ function Home() {
                     to="/projects/habihero" 
                     onMouseEnter={() => setHovered1(true)}
                     onMouseLeave={() => setHovered1(false)}
+                    
                 >
                     <motion.img 
                         src='./img/projects/green-arrow.png' 
