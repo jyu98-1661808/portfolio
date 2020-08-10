@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.4c40b387.chunk.css",
-    "main.js": "/static/js/main.f56afbd8.chunk.js",
-    "main.js.map": "/static/js/main.f56afbd8.chunk.js.map",
+    "main.css": "/static/css/main.c35bc39d.chunk.css",
+    "main.js": "/static/js/main.9f365e4d.chunk.js",
+    "main.js.map": "/static/js/main.9f365e4d.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.e5fc83a6.js",
     "runtime-main.js.map": "/static/js/runtime-main.e5fc83a6.js.map",
     "static/js/2.3ea17a13.chunk.js": "/static/js/2.3ea17a13.chunk.js",
     "static/js/2.3ea17a13.chunk.js.map": "/static/js/2.3ea17a13.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.3582bad8302b70a1dacf2ebf8cc21fd8.js": "/precache-manifest.3582bad8302b70a1dacf2ebf8cc21fd8.js",
+    "precache-manifest.13dbf2598a7c22ea81fa8b53a54c0d5d.js": "/precache-manifest.13dbf2598a7c22ea81fa8b53a54c0d5d.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.4c40b387.chunk.css.map": "/static/css/main.4c40b387.chunk.css.map",
+    "static/css/main.c35bc39d.chunk.css.map": "/static/css/main.c35bc39d.chunk.css.map",
     "static/js/2.3ea17a13.chunk.js.LICENSE.txt": "/static/js/2.3ea17a13.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/static/media/loading-background.fffaa2a6.png",
     "static/media/HabiHero.scss": "/static/media/loading-1.1b82f808.png",
@@ -20,7 +20,7 @@
   "entrypoints": [
     "static/js/runtime-main.e5fc83a6.js",
     "static/js/2.3ea17a13.chunk.js",
-    "static/css/main.4c40b387.chunk.css",
-    "static/js/main.f56afbd8.chunk.js"
+    "static/css/main.c35bc39d.chunk.css",
+    "static/js/main.9f365e4d.chunk.js"
   ]
 }
