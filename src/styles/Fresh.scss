@@ -95,8 +95,7 @@
         justify-content: space-between;
         margin-top: 5vh;
         width: 70vw;
-        height: auto;
-
+    
         @media screen and (max-width: $small) {
             width: 80vw;
         }
@@ -165,6 +164,7 @@
 
         @media screen and (max-width: $small) {
             width: 80vw;
+            height: auto;
         }
 
         div.research-table {
@@ -309,6 +309,7 @@
             margin-top: 1vh;
 
             @media screen and (max-width: $small) {
+                max-height: 18vh;
                 margin-top: 0vh;
             }
 

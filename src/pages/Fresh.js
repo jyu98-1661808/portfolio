@@ -23,7 +23,7 @@ function Fresh() {
         window.scrollTo(0, 0)
 
         let timer = setTimeout(() => {
-            document.getElementById('Loading-2').style.top = '-100%'
+            document.getElementById('Loading-2').style.top = '-150%'
             document.getElementById('Fresh-loaded').style.display = 'flex'
         }, 1250)
 
