@@ -11,8 +11,7 @@ function Fresh() {
 
     // runs when screen width changes
     useEffect(() =>
-        { window.addEventListener('resize', () => checkWidth());
-        console.log(width); }
+        window.addEventListener('resize', () => checkWidth())
     , [width])
 
     function checkWidth() {

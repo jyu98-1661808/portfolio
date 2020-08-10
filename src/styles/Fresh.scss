@@ -390,9 +390,11 @@
 
         div.high-fidelity-container {
             margin-top: 2vh;
+            margin-bottom: 4vh;
             width: 70vw;
 
             @media screen and (max-width: $small) {
+                margin-bottom: 1.5vh;
                 width: 80vw;
             }
 
