@@ -39,7 +39,7 @@ function HabiHero() {
         window.scrollTo(0, 0)
 
         let timer = setTimeout(() => {
-            document.getElementById('Loading-1').style.top = '-100%'
+            document.getElementById('Loading-1').style.top = '-200%'
             document.getElementById('Habi-hero-loaded').style.display = 'flex'
         }, 1250)
 

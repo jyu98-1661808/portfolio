@@ -113,7 +113,6 @@
             display: flex;
             flex-direction: column;
             width: 50%;
-            height: 100%;
 
             @media screen and (max-width: $small) {
                 width: 60%;
@@ -309,8 +308,8 @@
             margin-top: 1vh;
 
             @media screen and (max-width: $small) {
-                max-height: 18vh;
                 margin-top: 0vh;
+                min-height: 18vh;
             }
 
             figure {
