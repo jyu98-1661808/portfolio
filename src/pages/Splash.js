@@ -54,6 +54,7 @@ function Splash() {
     return (
         <div id='Splash'>
             <div id='Loading-3'>
+                <img src='../img/loaders/loading-3-icon.png' alt='Loading third icon' />
             </div>
             <div id='Splash-loaded'>
                 <h1>Splash</h1>

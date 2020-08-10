@@ -7,6 +7,17 @@ function Fresh() {
     document.body.style.overflowY = 'visible'
     document.body.style.overflowX = 'hidden'
     const [isHovered, setHovered] = useState(false);
+    const [width, setWidth] = useState(window.innerWidth);
+
+    // runs when screen width changes
+    useEffect(() =>
+        { window.addEventListener('resize', () => checkWidth());
+        console.log(width); }
+    , [width])
+
+    function checkWidth() {
+        setWidth(window.innerWidth)
+    }
 
      // runs once when page loads
      useEffect(() => {
@@ -42,6 +53,7 @@ function Fresh() {
     return (
         <div id='Fresh'>
             <div id='Loading-2'>
+                <img src='../img/loaders/loading-2-icon.png' alt='Loading second icon' />
             </div>
             <div id='Fresh-loaded'>
                 <h1>Amazon Fresh</h1>
@@ -90,18 +102,18 @@ function Fresh() {
                     </p>
                     <div className='research-table'>
                         <div className='research-column'>
-                            <h4>Pain Points or Barriers</h4>
+                            <h4>Pain Points</h4>
                             <ul>
-                                <li><p>Finding tasty alternatives that are affordable and convenient</p></li>
-                                <li><p>Portion sizes feel small for the price paid</p></li>
-                                <li><p>Incorporating fresh vegetables into meals</p></li>
+                                <li>&nbsp; Finding tasty alternatives that are affordable and convenient</li>
+                                <li>&nbsp; Portion sizes feel small for the price paid</li>
+                                <li>&nbsp; Incorporating fresh vegetables into meals</li>
                             </ul>
                         </div>
                         <div className='research-column'>
                             <h4>Opportunities</h4>
                             <ul>
-                                <li><p>Accessibility through delivery</p></li>
-                                <li><p>Minimal/simple cooking or no cooking at all</p></li>
+                                <li>&nbsp; Accessibility through delivery</li>
+                                <li>&nbsp; Minimal/simple cooking or no cooking at all</li>
                             </ul>
                         </div>
                     </div>
@@ -161,9 +173,9 @@ function Fresh() {
                             <p>
                                 As for the high-fidelity prototype, I added an initial pop-up message and description page on the "On-the-Go" meal line. I also implemented a "quick add" feature for the meals page. Users can keep track of the meals they have quickly added to their carts at the top of their screen. Lastly, I created a nutrition icon that is attached to the more balanced meal choices.
                             </p>
-                            <p>
-                                <span style={{fontWeight: 'bold'}}>Hover </span>  over the screens to see details.
-                            </p>
+                            {width > 500 &&
+                            <p><span style={{fontWeight: 'bold'}}>Hover </span>  over the screens to see details.</p> 
+                            }
                             <div className='screen-container'>
                                 { rows }
                                 <figure>

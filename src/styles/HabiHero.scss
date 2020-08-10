@@ -16,6 +16,15 @@
     width: 100vw;
     height: 100vh;
     z-index: 3;
+
+    img {
+        width: 70%;
+        height: auto;
+
+        @media screen and (max-width: $small) {
+            width: 100%;
+        }
+    }
 }
 
 #Habi-hero-loaded {
@@ -32,7 +41,6 @@
         margin-left: 0;
         align-items: center;
         width: 90vw;
-        overflow-x: hidden;
     }
 
     h1 {
@@ -492,10 +500,12 @@
         
         ul {
             padding-left: 1.25vw;
-            width: 100%;
+            width: 75%;
             list-style-position: inside;
 
             @media screen and (max-width: $small) {
+                margin-top: 1.25vh;
+                width: 100%;
                 overflow: auto;
             }
         }

@@ -38,18 +38,13 @@ function HabiHero() {
     useEffect(() => {
         window.scrollTo(0, 0)
 
-        if (width < 500) {
-            document.getElementById('Loading-1').style.display = 'none'
+        let timer = setTimeout(() => {
+            document.getElementById('Loading-1').style.top = '-100%'
             document.getElementById('Habi-hero-loaded').style.display = 'flex'
-        } else {
-            let timer = setTimeout(() => {
-                document.getElementById('Loading-1').style.top = '-100%'
-                document.getElementById('Habi-hero-loaded').style.display = 'flex'
-            }, 1250)
+        }, 1250)
 
-            return () => {
-                clearTimeout(timer)
-            }
+        return () => {
+            clearTimeout(timer)
         }
     }, [])
 
@@ -83,6 +78,7 @@ function HabiHero() {
     return (
         <div id='Habi-hero'>
             <div id='Loading-1'>
+                <img src='../img/loaders/loading-1-icon.png' alt='Loading first icon' />
             </div>
             <div id='Habi-hero-loaded'>
                 <h1>Habi Hero</h1>
@@ -97,7 +93,7 @@ function HabiHero() {
                         <h3>About</h3>
                         <p className='about-main'>
                             <span><img src='../img/projects/habihero/outlined-logo.png' alt='Habi Hero' /></span> is a <span style={{ color: "#8480B8", fontWeight: "bold" }}>math-based learning game</span>, helping <span style={{ color: "#92BAA4", fontWeight: "bold" }}>1st graders </span>
-                        overcome their numeracy challenges through motivation as they <span style={{ color: "#2E6D8D", fontWeight: "bold" }}>save virtual endangered animals</span>.
+                            overcome their numeracy challenges through motivation as they <span style={{ color: "#2E6D8D", fontWeight: "bold" }}>save virtual endangered animals</span>.
                     </p>
                         <p className='about-description'>
                             From basic addition to subtraction, the application utilizes gamification with a focus on saving endangered animals and their habitats.

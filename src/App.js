@@ -15,8 +15,8 @@ import Splash from './pages/Splash';
 import './styles/App.scss';
 
 function App() {
-  const [isLoading, setLoading] = useState(true)
-  const [width, setWidth] = useState(window.innerWidth)
+  const [isLoading, setLoading] = useState(true);
+  const [width, setWidth] = useState(window.innerWidth);
 
   // runs when screen width changes
   useEffect(() =>
@@ -38,13 +38,13 @@ function App() {
     return () => {
       clearTimeout(timer)
     }
-  },[])
+  }, [])
 
   return (
     <div id="App">
       <div id='Loading'>
         <motion.img
-          src='./img/loading-logo.png'
+          src='./img/loaders/loading-logo.png'
           alt='Loading logo'
           initial={{ x: -1000 }}
           animate={{ x: 0, rotate: 360 }}
@@ -72,8 +72,7 @@ function App() {
               <HabiHero />
             </Route>
             <Route path="/projects/fresh">
-              {width <= 500 && <Mobile />}
-              {width > 500 && <Fresh />}
+              <Fresh />
             </Route>
             <Route path="/projects/splash">
               {width <= 500 && <Mobile />}

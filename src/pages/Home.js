@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { NavLink, withRouter } from "react-router-dom";
 import { motion } from 'framer-motion';
 import '../styles/Home.scss';
 
@@ -9,6 +9,18 @@ function Home() {
     const [isHovered1, setHovered1] = useState(false);
     const [isHovered2, setHovered2] = useState(false);
     const [isHovered3, setHovered3] = useState(false);
+    const [width, setWidth] = useState(window.innerWidth);
+
+    // runs when screen width changes
+    useEffect(() =>
+        { window.addEventListener('resize', () => checkWidth());
+        console.log(width); }
+    , [width])
+
+    function checkWidth() {
+        setWidth(window.innerWidth)
+    }
+
 
     return (
       <div id="Home">
@@ -21,22 +33,26 @@ function Home() {
                     <h1>habi hero '20</h1>
                     <p>research <span style={{color: '#009cd2'}}>&nbsp;•&nbsp;</span> design <span style={{color: '#ff8b00'}}>&nbsp;•&nbsp;</span> develop</p>
                 </div>
-                <NavLink 
-                    id='first-project' 
-                    to="/projects/habihero" 
-                    onMouseEnter={() => setHovered1(true)}
-                    onMouseLeave={() => setHovered1(false)}
-                    
-                >
-                    <motion.img 
-                        src='./img/projects/green-arrow.png' 
-                        alt='arrow button' 
-                        whileHover={{
-                            rotate: 360,
-                            transition: { duration: 1 },
-                        }}
-                    />
-                </NavLink>
+                { width <= 500 ?
+                    (<NavLink id='first-project' to="/projects/habihero">
+                        <motion.img src='./img/projects/green-arrow.png' alt='arrow button' />
+                    </NavLink>) :
+                    (<NavLink 
+                        id='first-project' 
+                        to="/projects/habihero" 
+                        onMouseEnter={() => setHovered1(true)}
+                        onMouseLeave={() => setHovered1(false)}
+                    >
+                        <motion.img 
+                            src='./img/projects/green-arrow.png' 
+                            alt='arrow button' 
+                            whileHover={{
+                                rotate: 360,
+                                transition: { duration: 1 },
+                            }}
+                        />
+                    </NavLink>)
+                }
             </motion.div>
         </div>
         <div id='project-2' className='project-container'>
@@ -48,21 +64,26 @@ function Home() {
                     <h1>amazon '20</h1>
                     <p>research <span style={{color: '#bfca00'}}>&nbsp;•&nbsp;</span> design <span style={{color: '#f44366'}}>&nbsp;•&nbsp;</span> test</p>
                 </div>
-                <NavLink 
-                    id='second-project' 
-                    to="/projects/fresh" 
-                    onMouseEnter={() => setHovered2(true)}
-                    onMouseLeave={() => setHovered2(false)}
-                >
-                    <motion.img 
-                        src='./img/projects/orange-arrow.png' 
-                        alt='arrow button' 
-                        whileHover={{
-                            rotate: 360,
-                            transition: { duration: 1 },
-                        }}
-                    />
-                </NavLink>
+                { width <= 500 ?
+                    (<NavLink id='second-project' to="/projects/fresh">
+                        <motion.img src='./img/projects/orange-arrow.png' alt='arrow button' />
+                    </NavLink>) :
+                    (<NavLink 
+                        id='second-project' 
+                        to="/projects/fresh" 
+                        onMouseEnter={() => setHovered2(true)}
+                        onMouseLeave={() => setHovered2(false)}
+                    >
+                        <motion.img 
+                            src='./img/projects/orange-arrow.png' 
+                            alt='arrow button' 
+                            whileHover={{
+                                rotate: 360,
+                                transition: { duration: 1 },
+                            }}
+                        />
+                    </NavLink>)
+                }
             </motion.div>
         </div>
         <div id='project-3' className='project-container'>
@@ -74,26 +95,31 @@ function Home() {
                     <h1>splash '19</h1>
                     <p>research <span style={{color: '#ff4c00'}}>&nbsp;•&nbsp;</span> design <span style={{color: '#9450dc'}}>&nbsp;•&nbsp;</span> present</p>
                 </div>
-                <NavLink 
-                    id='second-project' 
-                    to="/projects/splash" 
-                    onMouseEnter={() => setHovered3(true)}
-                    onMouseLeave={() => setHovered3(false)}
-                >
-                    <motion.img 
-                        src='./img/projects/pink-arrow.png' 
-                        alt='arrow button' 
-                        whileHover={{
-                            rotate: 360,
-                            transition: { duration: 1 },
-                        }}
-                    />
-                </NavLink>
+                { width <= 500 ?
+                    (<NavLink id='third-project' to="/projects/splash">
+                        <motion.img src='./img/projects/pink-arrow.png' alt='arrow button' />
+                    </NavLink>) :
+                    (<NavLink 
+                        id='third-project' 
+                        to="/projects/splash" 
+                        onMouseEnter={() => setHovered3(true)}
+                        onMouseLeave={() => setHovered3(false)}
+                    >
+                        <motion.img 
+                            src='./img/projects/pink-arrow.png' 
+                            alt='arrow button' 
+                            whileHover={{
+                                rotate: 360,
+                                transition: { duration: 1 },
+                            }}
+                        />
+                    </NavLink>)
+                }
             </motion.div>
         </div>
       </div>
     );
   }
   
-  export default Home;
+  export default withRouter(Home);
   

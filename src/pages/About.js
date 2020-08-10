@@ -10,7 +10,6 @@ function About({width}) {
     
     function updatingScroll() {
         if (isMobile) {
-            console.log("hey")
             document.getElementById('fun-button').style.display = 'none';
             document.body.style.overflowY = 'visible'
             document.body.style.overflowX = 'hidden'
