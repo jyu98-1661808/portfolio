@@ -13,7 +13,7 @@ function Contact() {
                 <p>I'm always ready for another project,</p>
                 <p>email me at <a href="mailto:jina.yu98@gmail.com">jina.yu98@gmail.com</a></p>
                 <p>or connect with me on &nbsp;
-                    <a href="https://github.com/jyu98-1661808/">
+                    <a href="https://github.com/jiyunyuu/">
                         <span className='github'>
                             <motion.img 
                                 src='./img/contact/github-icon.png' alt='github icon'
