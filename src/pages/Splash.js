@@ -9,13 +9,23 @@ function Splash() {
     document.body.style.overflowY = 'visible'
     
     const [isHovered, setHovered] = useState(false);
+    const [width, setWidth] = useState(window.innerWidth);
+
+    // runs when screen width changes
+    useEffect(() =>
+        window.addEventListener('resize', () => checkWidth())
+    , [width])
+
+    function checkWidth() {
+        setWidth(window.innerWidth)
+    }
 
     // runs once when page loads
     useEffect(() => {
         window.scrollTo(0, 0)
 
         let timer = setTimeout(() => {
-            document.getElementById('Loading-3').style.top = '-100%'
+            document.getElementById('Loading-3').style.top = '-200%'
             document.getElementById('Splash-loaded').style.display = 'flex'
         }, 1250)
 
@@ -130,24 +140,22 @@ function Splash() {
                         <div className='challenge-container'>
                             <h4>Challenges</h4>
                             <ul>
-                                <li><p>Source of funding</p></li>
-                                <li><p>Environmental footprint of plastic water bottle production</p></li>
-                                <li><p>Tracking users' water consumption</p></li>
+                                <li>&nbsp; Source of funding</li>
+                                <li>&nbsp; Environmental footprint of plastic water bottle production</li>
+                                <li>&nbsp; Tracking users' water consumption</li>
                             </ul>
                         </div>
                         <div className='solution-container'>
                             <h4>Solutions</h4>
                             <ul>
-                                <li><p>Sponsorship from notable water companies</p></li>
-                                <li><p>Donations from users and water companies</p></li>
-                                <li><p>Educating users on the value of healthy water consumption</p></li>
-                                <li><p>Championing the games's initiative to relieve the water crisis</p></li>
+                                <li>&nbsp; Sponsorship from notable water companies</li>
+                                <li>&nbsp; Donations from users and water companies</li>
+                                <li>&nbsp; Educating users on the value of healthy water consumption</li>
+                                <li>&nbsp; Championing the games's initiative to relieve the water crisis</li>
                             </ul>
                         </div>
                     </div>
-                    <p>
-                        <span style={{fontWeight: 'bold'}}>Hover </span>  over the screens to see details.
-                    </p>
+                    { width > 500 && <p><span style={{fontWeight: 'bold'}}>Hover </span>  over the screens to see details.</p> }
                     <div className='high-fidelity-container'>
                         <div className='screen-container'>
                             { rows }

@@ -90,23 +90,6 @@
         }
     }
 
-    p.about-main {
-        margin-top: 1vh;
-        font-size: 1.25vw;
-        line-height: 1.25;
-
-        @media screen and (max-width: $small) {
-            font-size: 2vw;
-            line-height: 1.75;
-        }
-
-        span img {
-            margin-left: -0.2vw;
-            margin-bottom: -0.4vh;
-            width: 22.5%;
-        }
-    }
-
     div.about-container {
         display: flex;
         flex-direction: row;
@@ -119,6 +102,27 @@
             margin-top: 1.5vh;
             flex-direction: column;
             width: 80vw;
+        }
+
+        p.about-main {
+            margin-top: 1vh;
+            font-size: 1.25vw;
+            line-height: 1.25;
+    
+            @media screen and (max-width: $small) {
+                font-size: 2.25vw;
+                line-height: 1.75;
+            }
+    
+            span img {
+                margin-left: -0.2vw;
+                margin-bottom: -0.4vh;
+                width: 22.5%;
+
+                @media screen and (max-width: $small) {
+                    margin-bottom: -0.2vh;
+                }
+            }
         }
 
         div.description-container {
