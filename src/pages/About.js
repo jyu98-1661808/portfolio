@@ -28,7 +28,7 @@ function About({width}) {
 
     return (
         <div id='About'>
-            <motion.img id='me' src='./img/about/me-2.png' alt='Photo of Jiyun Yu'  initial={{ y: -150, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ y: { type: "spring", stiffness: 200, duration: 1 } }}/>
+            <motion.img id='me' src='./img/about/me.png' alt='Photo of Jiyun Yu'  initial={{ y: -150, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ y: { type: "spring", stiffness: 200, duration: 1 } }}/>
             <div className='about-container'>
                 <motion.h1  
                     initial={{ opacity: 0 }} 
