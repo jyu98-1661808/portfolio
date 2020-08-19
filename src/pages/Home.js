@@ -10,6 +10,10 @@ function Home() {
     const [isHovered2, setHovered2] = useState(false);
     const [isHovered3, setHovered3] = useState(false);
     const [width, setWidth] = useState(window.innerWidth);
+    
+    if (document.getElementById('Loaded')) {
+        document.getElementById('Loaded').style.backgroundImage = "url(../img/backgrounds/background.png)"
+    }
 
     // runs when screen width changes
     useEffect(() =>

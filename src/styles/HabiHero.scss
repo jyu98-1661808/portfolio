@@ -1,41 +1,15 @@
 @import './App.scss';
+$habihero-primary-font-color: #516b5c;
+$habihero-secondary-font-color: #81ac5a;
 
-#Loading-1 {
-    position: absolute;
-    top: 0;
-    left: 0;
+#Habi-hero {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #e9ffed;
-    background-image: url('../backgrounds/loading-1.png');
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    transition: 1s;
-    width: 100vw;
-    height: 100vh;
-    z-index: 3;
-
-    img {
-        width: 70%;
-        height: auto;
-
-        @media screen and (max-width: $small) {
-            width: 100%;
-        }
-    }
-}
-
-#Habi-hero-loaded {
-    display: none;
     flex-direction: column;
     align-items: left;
     justify-content: flex-start;
     margin-left: 3vw;
     width: 70vw;
     min-height: 100vh;
-    max-height: 495vh;
 
     @media screen and (max-width: $small) {
         margin-left: 0;
@@ -44,10 +18,10 @@
     }
 
     h1 {
-        font-size: 2.5vw;
+        font-size: 3.5vw;
         margin-bottom: 0;
         font-family: $primary-font-stack;
-        color: $primary-font-color;
+        color: #99C355;
 
         @media screen and (max-width: $small) {
             font-size: 8vw;
@@ -59,7 +33,7 @@
         margin-top: 0;
         margin-bottom: 0;
         font-family: $primary-font-stack;
-        color: $primary-font-color;
+        color: $habihero-primary-font-color;
 
         @media screen and (max-width: $small) {
             font-size: 6vw;
@@ -71,7 +45,7 @@
         margin-top: 1vh;
         margin-bottom: 0;
         font-family: $primary-font-stack;
-        color: $primary-font-color;
+        color: $habihero-secondary-font-color;
 
         @media screen and (max-width: $small) {
             margin-top: 0.25vh;
@@ -80,7 +54,7 @@
     }
 
     p {
-        color: $primary-font-color;
+        color: $habihero-primary-font-color;
         font-size: 0.9vw;
         margin-top: 0.5vh;
         line-height: 1.5;
@@ -93,10 +67,13 @@
     div.about-container {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-evenly;
+        background-color: #fefffe;
+        box-shadow: 2px 2px 10px #8888882c;
+        padding: 3%;
         margin-top: 5vh;
-        width: 70vw;
-        min-height: 37.5vh;
+        width: 94%;
+        height: auto;
 
         @media screen and (max-width: $small) {
             margin-top: 1.5vh;
@@ -115,9 +92,9 @@
             }
     
             span img {
-                margin-left: -0.2vw;
-                margin-bottom: -0.4vh;
-                width: 22.5%;
+                margin-left: 0.1vw;
+                margin-bottom: -0.2vh;
+                width: 22%;
 
                 @media screen and (max-width: $small) {
                     margin-bottom: -0.2vh;
@@ -128,8 +105,9 @@
         div.description-container {
             display: flex;
             flex-direction: column;
-            width: 55%;
+            width: 65%;
             height: 100%;
+            padding-right: 5%;
 
             @media screen and (max-width: $small) {
                 width: 100%;
@@ -185,8 +163,8 @@
         align-self: center;
         margin-top: 5vh;
         margin-bottom: 3vh;
-        width: 52vw;
-        height: 50vh;
+        width: 100%;
+        height: 65vh;
         box-shadow: 2px 2px 10px #888888;
 
         @media screen and (max-width: $small) {
@@ -201,12 +179,77 @@
         }
     }
 
+    div.hero-head {
+        position: absolute;
+        right: 15vw;
+        top: 125vh;
+        z-index: 2;
+        width: 20%;
+
+        div.hero-head-container {
+            position: relative;
+
+            img#hero-face {
+                width: 100%;
+                height: auto;
+            }
+    
+            div.hero-eye-container {
+                position: absolute;
+                top: 55%;
+                right: 21.5%;
+                width: 18%;
+
+                img#hero-eye {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+
+    div.multiplication-container {
+        position: absolute;
+        left: 8vw;
+        top: 225vh;
+        z-index: 2;
+        width: 15%;
+
+        img#multiplication {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    div.equal-container {
+        position: absolute;
+        right: 8vw;
+        top: 250vh;
+        z-index: 2;
+        width: 12.5%;
+
+        img#equal-top {
+            width: 100%;
+            height: auto;
+        }
+
+        img#equal-bottom{
+            margin-top: -3vh;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+
     div.research-container {
         display: flex;
         flex-direction: column;
         align-items: left;
-        margin-top: 1.5vh;
-        width: 70vw;
+        padding: 3%;
+        margin-top: 5vh;
+        width: 94%;
+        background-color: #f4ffe7;
+        box-shadow: 2px 2px 10px #8888882c;
 
         @media screen and (max-width: $small) {
             width: 80vw;
@@ -214,11 +257,10 @@
     }
 
     div#habihero-paper {
-        margin-top: 3vh;
-        margin-bottom: 3vh;
+        margin-top: 5vh;
         align-self: center;
-        width: 70%;
-        height: 68vh;
+        width: 70vw;
+        height: 80vh;
         box-shadow: 2px 2px 10px #888888;
 
         @media screen and (max-width: $small) {
@@ -233,11 +275,29 @@
         }
     }
 
-    div.design-container {
+    div.hero-shrug {
+        position: absolute;
+        right: 0;
+        top: 10vh;
+        height: 18%;
+        width: 10%;
+        margin: 0;
+
+        img#hero-shrug {
+            position: relative;
+            width: auto;
+            height: 100%;
+        }
+    }
+
+    div.initial-design-container {
         display: flex;
         flex-direction: column;
-        margin-top: 2.25vh;
-        width: 70vw;
+        padding: 3%;
+        margin-top: 5vh;
+        width: 94%;
+        background-color: #edf6fa;
+        box-shadow: 2px 2px 10px #8888882c;
 
         @media screen and (max-width: $small) {
             width: 80vw;
@@ -303,6 +363,24 @@
                 flex-direction: column;
             }
         }
+    }
+
+    div.visual-elements-container {
+        display: flex;
+        flex-direction: column;
+        padding: 3%;
+        margin-top: 5vh;
+        width: 94%;
+        background-color: #f9fff2;
+        box-shadow: 2px 2px 10px #8888882c;
+
+        p {
+            margin-top: 1vh;
+            
+            @media screen and (max-width: $small) {
+                margin-top: 0.25vh;
+            }
+        }
 
         div.visual-container {
             display: flex;
@@ -350,7 +428,6 @@
                     img {
                         width: 100%;
                         height: auto;
-                        box-shadow: 2px 2px 8px #88837575;
                     }
                 }
 
@@ -392,6 +469,10 @@
                 }
             }
 
+            figcaption {
+                color: $habihero-secondary-font-color;
+            }
+
             figure {
                 width: 30%;
 
@@ -405,89 +486,48 @@
                 }
             }
         }
+    }
 
-        div.carousel {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-self: center;
-            width: 60vw;
-            height: auto;
-            margin-top: 3vh;
-            margin-bottom: 3vh;
-        
+    div.high-fidelity-container {
+        padding: 3%;
+        margin-top: 5vh;
+        width: 94%;
+        background-color: #f5fce0;
+        box-shadow: 2px 2px 10px #8888882c;
+
+        p {
+            margin-top: 1vh;
+            
             @media screen and (max-width: $small) {
-                height: auto;
-                width: 100%;
-                margin-top: 1.5vh;
+                margin-top: 0.25vh;
             }
+        }
+    }
 
-            div.slick-slider {
+    div.screens-container {
+        margin-top: 5vh;
+        width: 100%;
+        box-shadow: 2px 2px 10px #8888887e;
+
+        div.screen-container {
+            margin: 0;
+
+            img {
+                margin: 0;
                 width: 100%;
                 height: auto;
-
-                button {
-                    height: 7.5vh;
-                    width: 7.5vw;
-                    z-index: 2;
-                    border: none;
-                }
-
-                button.slick-next {
-                    background-image: url(../backgrounds/green-arrow.png);
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    background-position: 50% 50%;
-                    -webkit-transform: rotate(90deg);
-                    -moz-transform: rotate(90deg);
-                    -ms-transform: rotate(90deg);
-                    -o-transform: rotate(90deg);
-                    transform: rotate(90deg);
-                    margin-right: -6vw;
-                }
-
-                button.slick-prev {
-                    background-image: url(../backgrounds/green-arrow.png);
-                    background-size: contain;
-                    background-repeat: no-repeat;
-                    background-position: 50% 50%;
-                    -webkit-transform: rotate(90deg);
-                    -moz-transform: rotate(90deg);
-                    -ms-transform: rotate(90deg);
-                    -o-transform: rotate(90deg);
-                    transform: rotate(90deg);
-                    margin-left: -6vw;
-                    -webkit-transform: rotate(-90deg);
-                    -moz-transform: rotate(-90deg);
-                    -ms-transform: rotate(-90deg);
-                    -o-transform: rotate(-90deg);
-                    transform: rotate(-90deg);
-                }
-
-                button::before {
-                    content: none;
-                }
-
-                div.slick-list {
-                    width: 60vw;
-                    box-shadow: 2px 2px 10px #888375d3;
-
-                    @media screen and (max-width: $small) {
-                        height: auto;
-                        width: 100%;
-                    }
-
-                    img {
-                        width: 60vw;
-                        height: 100%;
-                    }
-                }
             }
         }
     }
 
     div.links-container {
+        margin-top: 5vh;
         margin-bottom: 3vh; 
+        padding: 3%;
+        margin-top: 5vh;
+        width: 94%;
+        background-color: #f0ffcc;
+        box-shadow: 2px 2px 10px #8888882c;
 
         @media screen and (max-width: $small) {
             display: flex;
@@ -512,35 +552,37 @@
                 width: 100%;
                 overflow: auto;
             }
-        }
 
-        li {
-            font-size: 2vh;
-            font-weight: bold;
-            font-family: $primary-font-stack;
-            line-height: 1.5;
-            color: #99C355;
-            float: left;
-
-            a, a:visited {
-                font-size: 1.75vh;
-                font-weight: normal;
-                font-family: $secondary-font-stack;
-                color: $primary-font-color;
-                text-decoration: none;
-
-                @media screen and (max-width: $small) {
-                    display: block;
-                    font-size: 1.5vh;
+            li {
+                width: 100%;
+                font-size: 2vh;
+                font-weight: bold;
+                font-family: $primary-font-stack;
+                line-height: 1.5;
+                color: #99C355;
+                float: left;
+    
+                a, a:visited {
+                    font-size: 1.75vh;
+                    font-weight: normal;
+                    font-family: $secondary-font-stack;
+                    color: $habihero-primary-font-color;
+                    text-decoration: none;
+    
+                    @media screen and (max-width: $small) {
+                        display: block;
+                        font-size: 1.5vh;
+                    }
+                }
+    
+                a:hover {
+                    font-weight: normal;
+                    color: #99C355;
+                    text-decoration: none;
                 }
             }
-
-            a:hover {
-                font-weight: normal;
-                color: #99C355;
-                text-decoration: none;
-            }
         }
+
     }
 
     div.next-container {

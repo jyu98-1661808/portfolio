@@ -1,53 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
-import Slider from "react-slick";
-import { motion } from 'framer-motion';
+import { motion, useViewportScroll, useTransform } from 'framer-motion';
 import '../styles/Splash.scss';
 
 function Splash() {
     document.body.style.overflowX = 'hidden'
     document.body.style.overflowY = 'visible'
     
-    const [isHovered, setHovered] = useState(false);
-    const [width, setWidth] = useState(window.innerWidth);
+    const { scrollYProgress } = useViewportScroll()
+    const [progress, setProgress] = useState(0)
+    const [isHovered, setHovered] = useState(false)
+    const [width, setWidth] = useState(window.innerWidth)
+    const yPosAnim1 = useTransform(scrollYProgress, [0.14, 0.15, 0.18], [25, -25, -100])
+    const yPosAnim2 = useTransform(scrollYProgress, [0.23, 0.25, 0.28], [100, 0, -75])
+
+    // runs once when page loads
+    useEffect(() => {
+        window.scrollTo(0, 0)
+        document.getElementById('Loaded').style.backgroundImage = "url(../img/backgrounds/background-3.png)"
+    }, [])
+
+    scrollYProgress.onChange(current => {setProgress(current); console.log(current)})
+
 
     // runs when screen width changes
-    useEffect(() =>
+    useEffect(() => {
         window.addEventListener('resize', () => checkWidth())
-    , [width])
+    }, [width])
 
     function checkWidth() {
         setWidth(window.innerWidth)
     }
 
-    // runs once when page loads
-    useEffect(() => {
-        window.scrollTo(0, 0)
-
-        let timer = setTimeout(() => {
-            document.getElementById('Loading-3').style.top = '-200%'
-            document.getElementById('Splash-loaded').style.display = 'flex'
-        }, 1250)
-
-        return () => {
-            clearTimeout(timer)
-        }
-    }, [])
-
-    const settings = {
-        dots: false,
-        infinite: true,
-        speed: 400,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        arrows: false,
-    };
-
     var rows = [];
 
     for (var i = 1; i < 9; i++) {
-        var path = '../img/projects/splash/screen-' + i + '.png'
+        var path = '../img/projects/splash/high-fidelity/screen-' + i + '.png'
 
         rows.push(
             <motion.img 
@@ -55,7 +43,7 @@ function Splash() {
                 src={path} 
                 alt='High-fidelity screen' 
                 whileHover={{
-                    scale: 1.5,
+                    scale: 1.2,
                     transition: { duration: 1 },
                 }} />
         );
@@ -63,17 +51,22 @@ function Splash() {
 
     return (
         <div id='Splash'>
-            <div id='Loading-3'>
-                <img src='../img/loaders/loading-3-icon.png' alt='Loading third icon' />
-            </div>
-            <div id='Splash-loaded'>
-                <h1>Splash</h1>
-                <h3>Winter'19-Spring'19</h3>
-                <Slider id='splash-slides' {...settings}>
-                    <img src='../img/projects/splash/splash-1.png' alt='Splash advertisement' />
-                    <img src='../img/projects/splash/splash-2.png' alt='Help make a difference in the world' />
-                    <img src='../img/projects/splash/splash-3.png' alt='Collect unique aquatic animals' />
-                </Slider>
+                <motion.h1
+                    initial={{ opacity: 0 }} 
+                    animate={{ opacity: 1 }} 
+                    transition={{ delay: 0.25, duration: 1 }} >
+                    Splash
+                </motion.h1>
+                <motion.h3
+                    initial={{ opacity: 0 }} 
+                    animate={{ opacity: 1 }} 
+                    transition={{ delay: 0.25, duration: 1 }} >
+                    Winter'19-Spring'19
+                </motion.h3>
+                <motion.img id='splash-ad' src='../img/projects/splash/splash-1.png' alt='Splash advertisement'
+                    initial={{ y: -150, opacity: 0 }} 
+                    animate={{ y: 0, opacity: 1 }} 
+                    transition={{ y: { type: "spring", stiffness: 200, duration: 1 } }} />
                 <div className='intro-container'>
                     <div className='about-container'>
                         <h3>About</h3>
@@ -90,12 +83,24 @@ function Splash() {
                         <h3>Tools Used</h3>
                         <div className='logo-container'>
                             <img id='react' src='../img/projects/logos/react-logo.png' alt='react logo' />
-                            <img id='digital-ocean' src='../img/projects/logos/digital-ocean-logo.svg' alt='digital ocean logo' />
+                            <img id='illustrator' src='../img/projects/logos/illustrator-logo.png' alt='ilustrator logo' />
                             <img id='figma' src='../img/projects/logos/figma-logo.png' alt='figma logo' />
                         </div>
                         <p><span style={{fontWeight: 'bold'}}>From left to right:</span> <br/> React (for landing page), Illustrator, Invision</p>
                     </div>
                 </div>
+                <motion.div id='jellyfish-1' style={{ y: yPosAnim1 }}>
+                    <motion.img src='../img/projects/splash/jellyfish.png' alt='jellyfish'
+                        initial={{ y: 0 }}
+                        animate={{ y: 25 }} 
+                        transition={{ y: { yoyo: Infinity, duration: 1.15, ease: "linear" } }} />
+                </motion.div>
+                <motion.div id='jellyfish-2' style={{ y: yPosAnim2 }}>
+                    <motion.img src='../img/projects/splash/jellyfish.png' alt='jellyfish'
+                        initial={{ y: 0 }}
+                        animate={{ y: 25 }} 
+                        transition={{ y: { yoyo: Infinity, duration: 1, ease: "linear" } }} />
+                </motion.div>
                 <div className='research-container'>
                     <h3>Research</h3>
                     <h4>Background</h4>
@@ -126,21 +131,19 @@ function Splash() {
                         Then, I researched the native marine life in each country and provided the graphic designers with a list of animals and their images. 
                     </p>
                 </div>
-                <div className='design-container'>
-                    <h3>Design</h3>
-                    <p className='design-description'>
-                        The main interaction between users and the game is the barcode scanning feature. 
-                        As time progresses within the game, the fish tank becomes dirtier and its water needs to be replaced. 
-                        Users must consume water and scan the corresponding barcode of the water bottle in order to refresh the tank water and unlock new fish characters. 
-                        In return, a relative amount of clean water is donated to the communities in need around the world. 
-                        The relationship between the users and the community is further reinforced as the fish characters they unlock are notable inhabitants of the area. 
-                        Sponsor companies and organizations receive the data from barcodes and complete the water donation process accordingly.
+                <div className='approach-container'>
+                    <h3>Approach</h3>
+                    <p className='approach-description'>
+                        With the hackathon's theme for creating lasting impact around the world, we wanted to create a mobile game that engaged younger users to drink more water and
+                        and help fight the water crisis. We decided to intertwine the user's water intake to both the functionality of the game and Splash's primary motive to provide 
+                        aid for the water crisis in disadvantaged countries. We also considered how the water crisis could be presented in a more approachable way. Therefore, we came to
+                        the theme of native marine life as we ushered the importance of water. 
                     </p>
-                    <div className='design-row'>
+                    <div className='approach-row'>
                         <div className='challenge-container'>
                             <h4>Challenges</h4>
                             <ul>
-                                <li>&nbsp; Source of funding</li>
+                                <li>&nbsp; Finding means to alleviate the water crisis</li>
                                 <li>&nbsp; Environmental footprint of plastic water bottle production</li>
                                 <li>&nbsp; Tracking users' water consumption</li>
                             </ul>
@@ -155,50 +158,87 @@ function Splash() {
                             </ul>
                         </div>
                     </div>
-                    { width > 500 && <p><span style={{fontWeight: 'bold'}}>Hover </span>  over the screens to see details.</p> }
-                    <div className='high-fidelity-container'>
-                        <div className='screen-container'>
-                            { rows }
-                        </div>
-                        <figure>
-                            <a href='https://projects.invisionapp.com/prototype/AmazonFresh-ck22gfle7001v8l0134l2c3d4/play/9d324687'  target="_blank" rel="noopener noreferrer">
-                                <motion.img 
-                                    className='high-link' 
-                                    src='../img/projects/splash/splash-link.png' 
-                                    alt='Link to invision prototype'
-                                    whileHover={{
-                                        scale: 1.05,
-                                        rotate: 15,
-                                        transition: { duration: 1 },
-                                    }} /> 
-                            </a>
-                            <figcaption><span style={{fontWeight: 'bold'}}>Click </span>  phone above to test prototype. </figcaption>
+                </div>
+                <div className='visual-container'>
+                    <h3>Visual Elements</h3>
+                    <p>
+                        For the visual direction, we took inspiration from the mobile relaxation game "Tap Tap Fish AbyssRium". 
+                        We designed pixel sprites of the fish and aquatic animals that were native to the countries we researched.
+                        The pixel art reinforced the gamification of healthy water consumption and created an old school, 2D game theme for Splash. 
+                        The details of the pixel art were one of the pivotal aspects that won our team the Best Design Award for the Winfo Hackathon. 
+                    </p>
+                    <div className='visual-row'>
+                        <figure id='angelfish'>
+                            <img src='../img/projects/splash/angelfish.png' alt='Emperor Angelfish' />
+                            <figcaption><span style={{ fontWeight: 'bold' }}>Figure 1:</span> Emperor Angelfish</figcaption>
                         </figure>
+                        <figure id='turtle'>
+                            <img src='../img/projects/splash/turtle.png' alt='Turtle' />
+                            <figcaption><span style={{ fontWeight: 'bold' }}>Figure 2:</span> Sea Turtle</figcaption>
+                        </figure>
+                        <figure id='glassfish'>
+                            <img src='../img/projects/splash/glassfish.png' alt='Glassfish' />
+                            <figcaption><span style={{ fontWeight: 'bold' }}>Figure 3:</span> Glassfish</figcaption>
+                        </figure>
+
                     </div>
                 </div>
+                <div className='design-container'>
+                    <h3>High-fidelity Prototype</h3>
+                    <p>
+                        The main interaction between users and the game is the barcode scanning feature. 
+                        As time progresses within the game, the fish tank becomes dirtier and its water needs to be replaced. 
+                        Users must consume water and scan the corresponding barcode of the water bottle in order to refresh the tank water and unlock new fish characters. 
+                        In return, a relative amount of clean water is donated to the communities in need around the world. 
+                        The relationship between the users and the community is further reinforced as the fish characters they unlock are notable inhabitants of the area. 
+                        Sponsor companies and organizations receive the data from barcodes and complete the water donation process accordingly.
+                    </p>
+                    { width > 500 && <p><span style={{fontWeight: 'bold'}}>Hover </span>  over the screens to see details.</p> }
+                </div>
+                <div className='high-fidelity-container'>
+                    <div className='screen-container'>
+                        { rows }
+                    </div>
+                </div>
+                <motion.div className='splash-link-container'
+                    initial={{ y: 0 }}
+                    animate={{ y: 25 }} 
+                    transition={{ y: { yoyo: Infinity, duration: 1.15, ease: "linear" } }}>
+                    <a href='https://projects.invisionapp.com/prototype/AmazonFresh-ck22gfle7001v8l0134l2c3d4/play/9d324687'  target="_blank" rel="noopener noreferrer">
+                    <motion.img 
+                        src='../img/projects/splash/splash-link.png' 
+                        alt='Link to invision prototype'
+                        initial={{ rotate: 79 }}
+                        whileHover={{
+                            scale: 1.05,
+                            rotate: 74,
+                            transition: { duration: 1 },
+                        }} /> 
+                    </a>
+                </motion.div>
                 <div className='links-container'>
                     <h3>Links</h3>
                     <ul>
                         <li>
-                            <span style={{color: '#292929'}}>Github Repository: &nbsp;</span>
+                            <span style={{color: '#ac5aa5'}}>Github Repository: &nbsp;</span>
                             <a href="https://github.com/jyu98-1661808/winfo2018" target="_blank" rel="noopener noreferrer">
                                 https://github.com/jyu98-1661808/winfo2018
                             </a>
                         </li>
                         <li>
-                            <span style={{color: '#292929'}}>Landing Page: &nbsp;</span>
+                            <span style={{color: '#ac5aa5'}}>Landing Page: &nbsp;</span>
                             <a href="https://jyu98-1661808.github.io/winfo2018/" target="_blank" rel="noopener noreferrer">
                                 https://jyu98-1661808.github.io/winfo2018/
                             </a>
                         </li>
                         <li>
-                            <span style={{color: '#292929'}}>Pitch Document: &nbsp;</span>
+                            <span style={{color: '#ac5aa5'}}>Pitch Document: &nbsp;</span>
                             <a href="https://drive.google.com/file/d/1L4lQo1CEgVgBnNoi6BDmdnPAZ0RhQptn/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                                 https://drive.google.com/file/d/1L4lQo1CEgVgBnNoi6BDmdnPAZ0RhQptn/view?usp=sharing
                             </a>
                         </li>
                         <li>
-                            <span style={{color: '#292929'}}>Prototype: &nbsp;</span>  
+                            <span style={{color: '#ac5aa5'}}>Prototype: &nbsp;</span>  
                             <a href="https://projects.invisionapp.com/share/MYPY6X5RHA8#/screens/340608481" target="_blank" rel="noopener noreferrer">
                                 https://projects.invisionapp.com/share/MYPY6X5RHA8#/screens/340608481
                             </a>
@@ -210,28 +250,27 @@ function Splash() {
                         id='third-project' 
                         to="/projects/habihero" 
                         onMouseEnter={() => setHovered(true)}
-                        onMouseLeave={() => setHovered(false)}
-                    >
+                        onMouseLeave={() => setHovered(false)}>
                         <motion.img 
                             id='smile-logo'
                             src='../img/projects/smile-logo.png' 
                             alt='smile logo' 
+                            initial={{ rotate: 0 }} 
+                            animate={{ rotate: (progress > 0.99) ? 360 : 0 }}
+                            transition={{ duration: 0.75 }}
                             whileHover={{
-                                rotate: 360,
+                                rotate: (progress > 0.99) ? 0 : 360,
                                 transition: { duration: 1 },
-                            }}
-                        />
+                            }} />
                     </NavLink>
                     <motion.img 
                         id='next-arrow'
                         src='../img/projects/next-project.png' 
                         alt='Next project' 
                         animate={{ scale: isHovered ? 1.2 : 1 }} 
-                        transition={{ duration: 0.35 }}
-                    />
+                        transition={{ duration: 0.35 }} />
                 </div>
             </div>
-        </div>
     );
 }
 

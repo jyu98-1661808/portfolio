@@ -3,6 +3,10 @@ import { motion } from 'framer-motion';
 import '../styles/Contact.scss';
 
 function Contact() {
+    if (document.getElementById('Loaded')) {
+        document.getElementById('Loaded').style.backgroundImage = "url(../img/backgrounds/background.png)"
+    }
+
     return (
         <div id='Contact'>
             <motion.div className='contact-container' 

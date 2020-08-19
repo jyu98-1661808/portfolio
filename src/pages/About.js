@@ -4,6 +4,10 @@ import { motion } from 'framer-motion';
 import '../styles/About.scss';
 
 function About({width}) {
+    if (document.getElementById('Loaded')) {
+        document.getElementById('Loaded').style.backgroundImage = "url(../img/backgrounds/background.png)"
+    }
+
     const isMobile = width <= 500;
     
     useEffect(() => updatingScroll())

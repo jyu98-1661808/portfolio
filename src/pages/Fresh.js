@@ -1,36 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from "react-router-dom";
-import { motion } from 'framer-motion';
+import { motion, useViewportScroll, useTransform } from 'framer-motion';
 import '../styles/Fresh.scss';
 
 function Fresh() {
     document.body.style.overflowY = 'visible'
     document.body.style.overflowX = 'hidden'
-    const [isHovered, setHovered] = useState(false);
-    const [width, setWidth] = useState(window.innerWidth);
+
+    const [isHovered, setHovered] = useState(false)
+    const [progress, setProgress] = useState(0)
+    const [width, setWidth] = useState(window.innerWidth)
+
+    const { scrollYProgress } = useViewportScroll()
+    const yPosAnim1 = useTransform(scrollYProgress, [0, 0.01, 0.018], [75, 20, 0])
+
+    // runs once when page loads
+    useEffect(() => {
+        window.scrollTo(0, 0)
+        document.getElementById('Loaded').style.backgroundImage = "url(../img/backgrounds/background-2.png)"
+    }, [])
+
+    scrollYProgress.onChange(setProgress)
 
     // runs when screen width changes
-    useEffect(() =>
+    useEffect(() => {
         window.addEventListener('resize', () => checkWidth())
-    , [width])
+    }, [width])
 
     function checkWidth() {
         setWidth(window.innerWidth)
     }
-
-     // runs once when page loads
-     useEffect(() => {
-        window.scrollTo(0, 0)
-
-        let timer = setTimeout(() => {
-            document.getElementById('Loading-2').style.top = '-150%'
-            document.getElementById('Fresh-loaded').style.display = 'flex'
-        }, 1250)
-
-        return () => {
-            clearTimeout(timer)
-        }
-    }, [])
 
     var rows = [];
 
@@ -43,23 +42,37 @@ function Fresh() {
                 src={path} 
                 alt='High-fidelity screen' 
                 whileHover={{
-                    scale: 2,
+                    scale: 1.2,
                     transition: { duration: 1 },
                 }} />
         );
     }
 
     return (
-        <div id='Fresh'>
-            <div id='Loading-2'>
-                <img src='../img/loaders/loading-2-icon.png' alt='Loading second icon' />
-            </div>
-            <div id='Fresh-loaded'>
-                <h1>Amazon Fresh</h1>
-                <h3>Fall'19-Winter'20</h3>
+            <div id='Fresh'>
+                <motion.h1
+                    initial={{ opacity: 0 }} 
+                    animate={{ opacity: 1 }} 
+                    transition={{ delay: 0.25, duration: 1 }} >
+                    Amazon Fresh
+                </motion.h1>
+                <motion.h3
+                    initial={{ opacity: 0 }} 
+                    animate={{ opacity: 1 }} 
+                    transition={{ delay: 0.25, duration: 1 }} >
+                    Fall'19-Winter'20
+                </motion.h3>
                 <div className='about-container'>
-                    <img src='../img/projects/fresh/floating-phones.png' alt='Floating iphone screens' />
-                    <div className='description-container'>
+                    <motion.div className='about-image' style={{ y: yPosAnim1 }}>
+                        <motion.img src='../img/projects/fresh/floating-phones.png' alt='Floating iphone screens'
+                            initial={{ y: 0 }}
+                            animate={{ y: 25 }} 
+                            transition={{ y: { yoyo: Infinity, duration: 1.15, ease: "linear" } }} />
+                    </motion.div>
+                    <motion.div className='description-container'
+                        initial={{ y: -150, opacity: 0 }} 
+                        animate={{ y: 0, opacity: 1 }} 
+                        transition={{ y: { type: "spring", stiffness: 200, duration: 1 } }}>
                         <h3>Problem</h3>
                         <p className='about-main'>
                             How might <span style={{fontWeight: 'bold', color: '#2b737c'}}>college students</span> who reside independently with tight schedules achieve 
@@ -89,7 +102,7 @@ function Fresh() {
                                 Nutrients. 2018;10(12):1823. Published 2018 Nov 23. doi:10.3390/nu10121823
                             </li>
                         </ol>
-                    </div>
+                    </motion.div>
                 </div>
                 <div className='research-container'>
                     <h3>Research</h3>
@@ -116,9 +129,9 @@ function Fresh() {
                             </ul>
                         </div>
                     </div>
-                    <div id='fresh-paper'> 
-                        <iframe title='Document for AmazonFresh' src="https://drive.google.com/file/d/1d0tWtuhVG2muNdSalIJA7L3_9H0Jwc_c/preview" />
-                    </div>
+                </div>
+                <div id='fresh-paper'> 
+                    <iframe title='Document for AmazonFresh' src="https://drive.google.com/file/d/1d0tWtuhVG2muNdSalIJA7L3_9H0Jwc_c/preview" frameBorder="0" />
                 </div>
                 <div className='approach-container'>
                     <h3>Approach</h3>
@@ -130,11 +143,21 @@ function Fresh() {
                         By considering the integral issue of convenience, my solution involves incorporating a subscription meal plan under Amazon that has already established a fast delivery system and a large student population. 
                         From salads to nutrient-packed bowls, the “On-the-Go” line would have a strong emphasis of healthy and balanced foods. This emphasis correlates with the culture and products of Whole Foods, 
                         while the quick 2-hour delivery system can be implemented through AmazonFresh. Additionally, there would be another subscription meal plan feature where AmazonFresh users can have meals delivered weekly with ease. 
-                        Therefore, the users can have an optimal experience of quickly receiving nutrient-packed meals without the pain of cooking or cleaning after their meals.
+                        Therefore, the users can have an optimal experience of quickly receiving nutrient-packed meals without the pain of cooking or cleaning after their meals. 
                     </p>
                 </div>
-                <div className='design-container'>
-                    <h3>Design</h3>
+                <div className='initial-design-container'>
+                    <h3>Initial Design</h3>
+                    <h4>Storyboarding</h4>
+                    <p>
+                        For the storyboards, the persona I chose was a full-time college student who lived on an urban campus. 
+                        The user scenarios revolved around ordering "On-the-Go" Meals on the Amazon Fresh App, subscribing to these meals on the app, and 
+                        using Amazon Alexa to order these meals. I wanted to incorporate the mobile app in the user stories to convey the ease and accessibility
+                        of ordering the meals. Although I only focused on designing the user interface of the mobile app experience, I thought it was crucial to 
+                        show the full experience of the user from the order to the delivery. As for the Amazon Alexa use case, I wanted to showcase the Amazon Echo
+                        and its functionality as a personal assistant. If I had more time to develop this project, I would have liked to sketch out a flow chart of 
+                        the Alexa commands for ordering the "On-the-Go" Meals. 
+                    </p>
                     <div className='design-row'>
                         <figure className='storyboard'>
                             <img src='../img/projects/fresh/fresh-storyboard.png' alt='Storyboard' />
@@ -150,7 +173,7 @@ function Fresh() {
                             </div>
                             <figcaption>
                                 <span style={{fontWeight: 'bold'}}>Figure 2: </span> 
-                                Paper prototype of the Amazon Fresh home page and "On-the-Go" meal page.
+                                Paper prototype of the home page and "On-the-Go" meal page
                             </figcaption>
                         </figure>
                     </div>
@@ -159,53 +182,53 @@ function Fresh() {
                         <div className='low-fidelity-description'>
                             <h4>Low-fidelity Prototype</h4>
                             <p>
-                                It was important to maintain the overall layout of the AmazonFresh app. By keeping the UI of side-scrolling sections,
+                                It was important to maintain the overall layout of the Amazon Fresh app. By keeping the UI of side-scrolling sections,
                                 I dedicated an "On-the-Go" Meals section. The meal page would include photos of the meal, the nutrition label, and reviews.
                                 Additionally, the page would include options for a one-time purchase or a subscription. These options are located in a toggle box
                                 that aligned with the pre-existing subscription option in the Amazon app. The user would be able to review and checkout their carts.
                             </p>
                         </div>
                     </div>
-                    <div className='high-fidelity-container'>
-                        <div className='high-fidelity-description'>
-                            <h4>High-fidelity Prototype</h4>
-                            <p>
-                                As for the high-fidelity prototype, I added an initial pop-up message and description page on the "On-the-Go" meal line. I also implemented a "quick add" feature for the meals page. Users can keep track of the meals they have quickly added to their carts at the top of their screen. Lastly, I created a nutrition icon that is attached to the more balanced meal choices.
-                            </p>
-                            {width > 500 &&
-                            <p><span style={{fontWeight: 'bold'}}>Hover </span>  over the screens to see details.</p> 
-                            }
-                            <div className='screen-container'>
-                                { rows }
-                                <figure>
-                                    <a href='https://projects.invisionapp.com/prototype/AmazonFresh-ck22gfle7001v8l0134l2c3d4/play/9d324687'  target="_blank" rel="noopener noreferrer">
-                                    <motion.img 
-                                        className='high-link' 
-                                        src='../img/projects/fresh/high-link.png' 
-                                        alt='Link to invision prototype'
-                                        whileHover={{
-                                            scale: 1.05,
-                                            rotate: 15,
-                                            transition: { duration: 1 },
-                                        }} /> 
-                                    </a>
-                                    <figcaption><span style={{fontWeight: 'bold'}}>Click </span>  phone above to test prototype. </figcaption>
-                                </figure>
-                            </div>
-                        </div>
+                </div>
+                <div className='high-fidelity-container'>
+                    <div className='high-fidelity-description'>
+                        <h3>High-fidelity Prototype</h3>
+                        <p>
+                            As for the high-fidelity prototype, I added an initial pop-up message and description page on the "On-the-Go" meal line. I also implemented a "quick add" feature for the meals page. Users can keep track of the meals they have quickly added to their carts at the top of their screen. Lastly, I created a nutrition icon that is attached to the more balanced meal choices.
+                                </p>
+                        {width > 500 &&
+                            <p><span style={{ fontWeight: 'bold' }}>Hover </span>  over the screens to see details.</p>
+                        }
                     </div>
+                </div>
+                <div className='screen-container'>
+                    { rows }
+                    <a href='https://projects.invisionapp.com/prototype/AmazonFresh-ck22gfle7001v8l0134l2c3d4/play/9d324687' target="_blank" rel="noopener noreferrer">
+                        <motion.img
+                            className='high-link'
+                            src='../img/projects/fresh/high-link.png'
+                            alt='Link to invision prototype'
+                            initial={{ y: 0 }}
+                            animate={{ y: 25 }} 
+                            transition={{ y: { yoyo: Infinity, duration: 1.15, ease: "linear" } }}
+                            whileHover={{
+                                scale: 1.05,
+                                rotate: 10,
+                                transition: { duration: 0.25 },
+                            }} />
+                    </a>
                 </div>
                 <div className='links-container'>
                     <h3>Links</h3>
                     <ul>
                         <li>
-                            <span style={{color: '#292929'}}>Pitch Deck: &nbsp;</span>
+                            <span style={{color: '#3abeb3'}}>Pitch Deck: &nbsp;</span>
                             <a href="https://drive.google.com/file/d/1d0tWtuhVG2muNdSalIJA7L3_9H0Jwc_c/view?usp=sharing" target="_blank" rel="noopener noreferrer">
                                 https://drive.google.com/file/d/1d0tWtuhVG2muNdSalIJA7L3_9H0Jwc_c/view?usp=sharing
                             </a>
                         </li>
                         <li>
-                            <span style={{color: '#292929'}}>Prototype: &nbsp;</span>  
+                            <span style={{color: '#3abeb3'}}>Prototype: &nbsp;</span>  
                             <a href="https://projects.invisionapp.com/prototype/AmazonFresh-ck22gfle7001v8l0134l2c3d4/play/9d324687" target="_blank" rel="noopener noreferrer">
                                 https://projects.invisionapp.com/prototype/AmazonFresh-ck22gfle7001v8l0134l2c3d4/play/9d324687
                             </a>
@@ -223,8 +246,11 @@ function Fresh() {
                             id='smile-logo'
                             src='../img/projects/smile-logo.png' 
                             alt='smile logo' 
+                            initial={{ rotate: 0 }} 
+                            animate={{ rotate: (progress > 0.99) ? 360 : 0 }}
+                            transition={{ duration: 0.75 }}
                             whileHover={{
-                                rotate: 360,
+                                rotate: (progress > 0.99) ? 0 : 360,
                                 transition: { duration: 1 },
                             }}
                         />
@@ -238,7 +264,6 @@ function Fresh() {
                     />
                 </div>
             </div>
-        </div>
     );
 }
 

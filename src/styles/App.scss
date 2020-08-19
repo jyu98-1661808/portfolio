@@ -28,7 +28,6 @@ body {
   height: 100vh;
   text-align: center;
 
-
   @media screen and (max-width: $small) {
     img {
       width: auto;
@@ -60,10 +59,11 @@ body {
 
 #Loaded {
   display: none;
+  background-attachment: fixed;
   background-color: $background-color;
-  background-image: url('../backgrounds/background.png');
-  background-repeat: repeat;
-  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100vw;
   min-height: 100vh;
 

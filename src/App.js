@@ -19,7 +19,7 @@ function App() {
   const [width, setWidth] = useState(window.innerWidth);
 
   // runs when screen width changes
-  useEffect(() =>
+  useEffect(() => 
     window.addEventListener('resize', () => checkWidth())
   , [width])
 
@@ -69,13 +69,13 @@ function App() {
               <Home />
             </Route>
             <Route path="/projects/habihero">
-              <HabiHero />
+              { width > 512 ? <HabiHero /> : <Mobile /> }
             </Route>
             <Route path="/projects/fresh">
-              <Fresh />
+              { width > 512 ? <Fresh /> : <Mobile /> }
             </Route>
             <Route path="/projects/splash">
-              <Splash />
+              { width > 512 ? <Splash /> : <Mobile /> }
             </Route>
             <Route path="/about">
               <About width={width} />
@@ -151,15 +151,15 @@ function Menu() {
   );
 }
 
-// function Mobile() {
-//   return (
-//       <div id='Mobile'>
-//           <motion.img src='../img/projects/out-of-service.png' alt='out of service sign' />
-//           <h3>Mobile version is under maintenance.</h3>
-//           <h3>Updating soon!</h3>
-//           <h3>Check out projects on desktop.</h3>
-//       </div>
-//   )
-// }
+function Mobile() {
+  return (
+      <div id='Mobile'>
+          <motion.img src='../img/projects/out-of-service.png' alt='out of service sign' />
+          <h3>Mobile version is under maintenance.</h3>
+          <h3>Updating soon!</h3>
+          <h3>Check out projects on desktop.</h3>
+      </div>
+  )
+}
 
 export default App;
